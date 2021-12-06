@@ -1,0 +1,2 @@
+class EventPlace < ApplicationRecord
+end

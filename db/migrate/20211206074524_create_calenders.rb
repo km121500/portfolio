@@ -5,9 +5,9 @@ class CreateCalenders < ActiveRecord::Migration[5.2]
       t.integer :event_id,null: false 
       t.string :title,null: false 
       t.text :body
-      t.boolean :disp_flag,null: false 
-      t.datatime :start 
-      t.datatime :end 
+      t.boolean :disp_flag
+      t.datetime :start 
+      t.datetime :end 
       t.string :allday
       
       t.timestamps

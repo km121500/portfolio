@@ -4,5 +4,6 @@ class Event < ApplicationRecord
   has_many :places,through: :event_places
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
-  calender
+  
+  attachment :image
 end

@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :calenders, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
+  
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end

@@ -20,10 +20,10 @@ scope module: :public do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  resources :events,only:  [:new, :create, :index, :show, :edit, :destroy] do
+  resources :events do
     resources :event_comments,only: [:create, :destroy]
   end
-  
+  resources :groups, except: [:destroy]
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,8 +1,6 @@
-<h2>新規投稿</h2>
-<%= form_with model:@event, local:true do |f| %>
-
+<%= form_with model:event, local:true do |f| %>
     <div class="form-group">
-        <%= attachment_image_tag @event, :image ,:fill, 60, 60, fallback: "no_image.jpg"%>
+        <%= attachment_image_tag event, :image ,:fill, 60, 60, fallback: "no_image.jpg"%>
         <%= f.label :画像 %>
         <%= f.attachment_field :image, class: "form-control-file event_image" %>
     </div>

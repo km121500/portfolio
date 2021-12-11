@@ -23,7 +23,11 @@ scope module: :public do
   resources :events do
     resources :event_comments,only: [:create, :destroy]
   end
-  resources :groups, except: [:destroy]
+  resources :groups do
+    get "join" => "groups#join"
+    get "new/mail" => "groups#new_mail"
+    get "send/mail" => "groups#send_mail"
+  end
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,0 +1,8 @@
+
+<%= attachment_image_tag @event,:image ,:fill, 100, 100,format: 'jpeg',fallback: "no_image.jpeg" %>
+  <%= @event.title %>
+  <%= @event.date %>
+  <%= @event.place %>
+  <%= @event.user.name %>
+<%= render 'public/rerationships/button', event: @event %>
+

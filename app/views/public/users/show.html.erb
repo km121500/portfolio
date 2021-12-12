@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="mt-5">
+
+    <p class="text-success"><%= flash[:success]%></p>
+        <div>
+        <h3 class="offset-2 col-md-3 text-center d-inline" style="background-color:rgba(107,90,105,0.1);">マイページ</h3>
+        </div>
+        <div class="mt-4 mb-4 btn-group align-items-center">
+        <h4 class="font-weight-bold pt-2 ">登録情報</h4>
+        <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4"%>
+        </div>
+      <div class="col-md-7 px-0">
+        <table class="table table-bordered  "border="1">
+          <tr class="border">
+            <td class="col-2 border-dark" style="background-color:rgba(107,90,105,0.1);">氏名</td>
+            <td class="col-5 border-dark"><%= @user.name %></td>
+          </tr>  
+          <tr>
+            <td class="col-2 border-dark" style="background-color:rgba(107,90,105,0.1);">メールアドレス</td>
+            <td class="col-5 border-dark"><%= @user.email %></td>
+          </tr>
+          </table>
+           <%= link_to "退会する", erasure_user_path ,class: "btn btn-danger offset-2 pr-4 pl-4"%>
+      </div>
+      </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@ namespace :admin do
 end
 
 scope module: :public do
-  get 'user/:id/erasure'=>'users#erasure', as: 'erasure_user'
+  get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
   resources :users,only: [:show,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
@@ -23,7 +23,13 @@ scope module: :public do
   resources :events do
     resources :event_comments,only: [:create, :destroy]
   end
-  resources :groups, except: [:destroy]
+  resources :groups do
+    get "join" => "groups#join"
+    get "new/mail" => "groups#new_mail"
+    get "send/mail" => "groups#send_mail"
+  end
+  get 'users/:id/calender'=>'users#calender', as: 'calender_user'
+  resources :calenders
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

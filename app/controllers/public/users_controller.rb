@@ -9,7 +9,7 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(uer_params)
+    if @user.update(user_params)
       flash[:success] = "会員情報を編集しました"
       redirect_to users_path(@user)
     else
@@ -18,15 +18,23 @@ class Public::UsersController < ApplicationController
   end
 
   def erasure
-    
+
+    @user = User.find(params[:id])
   end
 
   def leave
-    @customer = User.find(user.id)
+    @user = User.find(user.id)
+
     if @user.update(is_delete: true)
       sign_out current_user
     end
     redirect_to user_path
+  end
+  
+  def cadender
+    @user = User.find(params[:id])
+    @calenders = Calender.where(user_id: @user.id)
+    @calender = Calender.new
   end
 
   private

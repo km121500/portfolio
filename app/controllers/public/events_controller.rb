@@ -3,14 +3,16 @@ class Public::EventsController < ApplicationController
   def index
     @events = Event.all
   end
-
+  
   def new
     @event = Event.new
   end
-
+  
   def show
     @event = Event.find(params[:id])
+
   end
+  
 
   def create
     @event = Event.new(event_params)
@@ -30,8 +32,8 @@ class Public::EventsController < ApplicationController
     else
       render "edit"
     end
-
   end
+  
 
   def destroy
     @event = Event.find(params[:id])
@@ -46,3 +48,4 @@ class Public::EventsController < ApplicationController
   end
 
 end
+

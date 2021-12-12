@@ -1,5 +1,5 @@
 class Public::GroupsController < ApplicationController
-   before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
   
   def index
@@ -56,7 +56,7 @@ class Public::GroupsController < ApplicationController
     @group = Group.find(params[:group_id])
     group_users = @group.users
     @title = params[:title]
-    @content = params[:content]
+    @content = params[:content] 
     EventMailer.send_mail(group_users, @title, @content).deliver
   end
   

@@ -28,6 +28,12 @@ class Public::UsersController < ApplicationController
     end
     redirect_to user_path
   end
+  
+  def cadender
+    @user = User.find(params[:id])
+    @calenders = Calender.where(user_id: @user.id)
+    @calender = Calender.new
+  end
 
   private
 

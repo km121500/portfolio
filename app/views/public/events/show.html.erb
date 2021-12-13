@@ -5,7 +5,19 @@
   <%= @event.place %>
   <%= @event.user.name %>
 <%= render 'public/rerationships/button', event: @event %>
-
+<tbody>
+  <tr>
+    <td><%= @event.user.name %></td>
+    <td><%= @event.title %></td>
+    <td><%= @event.body %></td>
+    <td><%= link_to "編集", edit_event_path(@event) %></td>
+    <% if @event.bookmarked_by?(current_user) %>
+      <td><%= link_to "ブックマークを外す", event_bookmarks_path(@event), method: :delete %></td>
+    <% else %>
+      <td><%= link_to "ブックマーク", event_bookmarks_path(@event), method: :post %></td>
+    <% end %>
+  </tr>
+</tbody>
 
 <div>
 <% @event.event_comments.each do |event_comment| %>

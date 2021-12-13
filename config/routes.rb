@@ -17,6 +17,7 @@ scope module: :public do
   get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
   get 'users/:id/index' => 'users#index', as: 'users'
+  get 'users/bookmark' => 'users#bookmark', as: 'bookmark'
   resources :users,only: [:show,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
@@ -24,6 +25,7 @@ scope module: :public do
   end
   resources :events do
     resources :event_comments,only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
   end
   resources :groups do
     get "join" => "groups#join"

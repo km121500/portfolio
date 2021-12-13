@@ -42,6 +42,10 @@ class Public::UsersController < ApplicationController
     @calender = Calender.new
   end
 
+  def bookmark
+  @bookmarks = Bookmark.where(user_id: current_user.id)
+  end
+  
   private
 
   def user_params

@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :calenders, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
+  
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   # フォローフォロワー機能
   def follow(user_id)

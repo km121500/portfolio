@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_074524) do
+ActiveRecord::Schema.define(version: 2021_12_13_072811) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 2021_12_06_074524) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "event_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
@@ -57,7 +65,6 @@ ActiveRecord::Schema.define(version: 2021_12_06_074524) do
     t.string "title", null: false
     t.string "place"
     t.text "body"
-    t.string "place"
     t.string "date"
     t.string "image_id", null: false
     t.datetime "created_at", null: false
@@ -83,6 +90,18 @@ ActiveRecord::Schema.define(version: 2021_12_06_074524) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/show'
 devise_for :user,skip: [:passwords,], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -15,6 +16,7 @@ end
 scope module: :public do
   get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
+  get 'users/:id/index' => 'users#index', as: 'users'
   resources :users,only: [:show,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
@@ -30,6 +32,8 @@ scope module: :public do
   end
   get 'users/:id/calender'=>'users#calender', as: 'calender_user'
   resources :calenders
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

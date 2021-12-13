@@ -1,8 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
-  has_many :event_comment
-  has_many :places,through: :event_places
-  accepts_nested_attributes_for :places, allow_destroy: true
+  has_many :event_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
   
@@ -19,6 +17,10 @@ class Event < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+  
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user).exists?
   end
 
 end

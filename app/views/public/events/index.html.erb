@@ -1,4 +1,9 @@
 <%= link_to "グループ一覧", groups_path %>
+    <div class="slideshow">
+      <div class="theTarget">
+        <div style="background-image: image-url(images/test1.jpg)"></div>
+      </div>
+    </div>
 <h2>イベント一覧</h2>
 
 <% @events.each do |event| %>
@@ -14,6 +19,6 @@
   <%= link_to "削除",event_path(event),method: :delete %>
   <%= link_to "編集",edit_event_path(event) %>
   <% end %>
-  
+
 </div>
 <% end %>

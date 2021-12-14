@@ -19,3 +19,5 @@
 //= require moment
 //= require fullcalendar
 //= require_tree .
+// オプションを指定してSkipprの実行
+// オプションを指定してSkipprの実行

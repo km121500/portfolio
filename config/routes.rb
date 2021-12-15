@@ -14,6 +14,7 @@ namespace :admin do
 end
 
 scope module: :public do
+  root to: 'events#index'
   get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
   get 'users/:id/index' => 'users#index', as: 'users'

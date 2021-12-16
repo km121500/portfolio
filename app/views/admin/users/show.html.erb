@@ -1,0 +1,43 @@
+<div class = "container">
+
+  <p class="text-success"><%= flash[:notice]%></p>
+  <div class = "row mt-5">
+    <h3 class = "admin-customers-show" style="background-color:rgba(107,90,105,0.1);"><%= @user.name %>さんの会員詳細</h3>
+  </div>
+
+  <div class = "row mt-5"> 
+    <div class = "col">
+      <table class = "table table-borderless">
+        <tr>
+          <th class = "col-md-3">会員Id</th>
+          <td class = "col-md-9"><%= @user.id %></td>
+        </tr>
+        
+        <tr>
+          <th class = "col-md-3">氏名</th>
+          <td class = "col-md-9"><%= @user.name %></td>
+        </tr>
+        
+        <tr>
+          <th class = "col-md-3">メールアドレス</th>
+          <td class = "col-md-9"><%= @user.email %></td>
+        </tr>
+        
+        <tr>
+          <th class = "col-md-3">会員ステータス</th>
+          <td class = "col-md-9"><%= @user.is_deleted ? '退会' : '有効'%></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class = "row">  
+    <div class = "col-md-3"></div>
+    <div class = "col-md-9">
+      <div class = "btn btn-success mr-5">
+        <%= link_to "編集する",edit_admin_user_path, class: "text-white" %>
+      </div>
+    </div>
+  </div>
+  
+</div>

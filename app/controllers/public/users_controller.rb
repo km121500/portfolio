@@ -1,9 +1,9 @@
 class Public::UsersController < ApplicationController
-  
+
   def index
     @user = User.find(params[:id])
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -35,8 +35,8 @@ class Public::UsersController < ApplicationController
     end
     redirect_to user_path
   end
-  
-  def cadender
+
+  def calender
     @user = User.find(params[:id])
     @calenders = Calender.where(user_id: @user.id)
     @calender = Calender.new
@@ -45,7 +45,7 @@ class Public::UsersController < ApplicationController
   def bookmark
   @bookmarks = Bookmark.where(user_id: current_user.id)
   end
-  
+
   private
 
   def user_params

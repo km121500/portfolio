@@ -10,11 +10,12 @@ devise_for :admin,skip: [:registrations, :passwords] , controllers: {
 }
 
 namespace :admin do
-  resources :uers, only: [:index, :show, :edit, :update]
+  root to: 'homes#top'
+  resources :users, only: [:show, :edit, :update]
 end
 
 scope module: :public do
-  root to: 'events#index'
+  root to: 'homes#top'
   get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
   get 'users/:id/index' => 'users#index', as: 'users'
@@ -24,7 +25,7 @@ scope module: :public do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  resources :events do
+  resources :events,only: [:new,:show,:create,:edit,:update,:destroy] do
     resources :event_comments,only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end

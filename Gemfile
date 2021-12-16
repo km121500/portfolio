@@ -63,10 +63,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'jquery-rails', '4.3.3'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'pry-rails'
@@ -75,3 +75,4 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+gem 'kaminari','~> 1.2.1'

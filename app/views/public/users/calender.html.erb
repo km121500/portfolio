@@ -37,7 +37,7 @@
         </div>
 <!-- 編集 ------------------------------------------------------------------>
         <div id="inputEditForm">
-            <%= render 'calenders/edit', events: @calenders %>
+            <%= render 'calenders/edit', calenders: @calenders %>
         </div>
     <% end %>
 <% end %>
@@ -55,7 +55,6 @@
         };
         }
         )
-
         // カレンダー表示
         $('#calendar').fullCalendar ({
             header: {
@@ -63,12 +62,10 @@
                 center: 'month,agendaWeek,agendaDay',
                 right: 'title'
             },
-
             buttonText: {
                   prev: "<",
                   next: ">"
             },
-
             timezone: 'UTC',
             calenders: '/users/calenders.json',
             navLinks: true,
@@ -78,13 +75,11 @@
             dayClick : function ( date , jsEvent , view ) {
                 $('#inputScheduleForm').modal('Calender');
                 },
-
             // event クリックで編集、削除
             calenderClick : function(calender, jsCalender , view) {
                 jsCalender.preventDefault();
                 $(`#inputScheduleEditForm${calender.id}`).modal('calender');
             },
-
             calenderMouseover : function(calender, jsCalender , view) {
                 jsCalender.preventDefault();
             }

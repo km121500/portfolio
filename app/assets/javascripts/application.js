@@ -10,17 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require moment
 //= require fullcalendar
 //= require_tree .
-// オプションを指定してSkipprの実行
-// オプションを指定してSkipprの実行
 
 $(document).ready(function () {
   $("#theTarget").skippr({
@@ -44,5 +42,11 @@ $(document).ready(function () {
     keyboardOnAlways : true,
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
     hidePrevious : false
+  });
+});
+/*global $*/
+$(document).ready(function () {
+  $('.jquery').on('click', function(){
+    $(this).css('color','red');
   });
 });

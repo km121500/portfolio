@@ -16,6 +16,7 @@ end
 
 scope module: :public do
   root to: 'homes#top'
+  get 'users/user_all' => 'users#user_all',as: 'user_all'
   get 'users/:id/erasure'=>'users#erasure', as: 'erasure_user'
   patch 'users/:id/leave'=>'users#leave', as: 'leave_user'
   get 'users/:id/index' => 'users#index', as: 'users'
@@ -25,10 +26,9 @@ scope module: :public do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  resources :events,only: [:new,:show,:create,:edit,:update,:destroy] do
+  resources :events,only: [:index,:new,:show,:create,:edit,:update,:destroy] do
     resources :event_comments,only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
-
   end
   resources :groups do
     get "join" => "groups#join"
@@ -39,6 +39,7 @@ scope module: :public do
   resources :calenders
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+  get '/search', to: 'searches#search'
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

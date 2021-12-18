@@ -43,7 +43,7 @@
 <% end %>
     <script>
     // CRUDを行う際にCSRF対策のtokenを発行
-        $(document).ready(function() {
+    $(document).ready(function() {
         var prepare = function(options, originalOptions, jqXHR) {
           var token;
           if (!options.crossDomain) {
@@ -53,10 +53,50 @@
             }
           }
         };
-        }
-        )
         // カレンダー表示
-        $('#calendar').fullCalendar ({
+
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'month,agendaWeek,agendaDay',
+                right: 'title'
+            },
+            buttonText: {
+                  prev: "<",
+                  next: ">"
+            },
+            timezone: 'UTC',
+//            calenders: '/users/calenders.json',
+            events: [
+                <% @events.each do |event|%>
+                {
+                    title: '<%=event[:title]%>',
+                    start: '<%=event[:start]%>',
+                    end: '<%=event[:end]%>'
+                },
+                <% end %>
+            ],
+            navLinks: true,
+            selectable: true,
+            selectHelper: true,
+            // 日付クリック
+            dayClick : function ( date , jsEvent , view ) {
+                $('#inputScheduleForm').modal('show');
+                },
+            // event クリックで編集、削除
+            calenderClick : function(calender, jsCalender , view) {
+                jsCalender.preventDefault();
+                $(`#inputScheduleEditForm${calender.id}`).modal('show');
+            },
+            calenderMouseover : function(calender, jsCalender , view) {
+                jsCalender.preventDefault();
+            }
+        });
+        calendar.render();
+        /*
+        ({
             header: {
                 left: 'prev,next today',
                 center: 'month,agendaWeek,agendaDay',
@@ -73,16 +113,18 @@
             selectHelper: true,
             // 日付クリック
             dayClick : function ( date , jsEvent , view ) {
-                $('#inputScheduleForm').modal('Calender');
+                $('#inputScheduleForm').modal('show');
                 },
             // event クリックで編集、削除
             calenderClick : function(calender, jsCalender , view) {
                 jsCalender.preventDefault();
-                $(`#inputScheduleEditForm${calender.id}`).modal('calender');
+                $(`#inputScheduleEditForm${calender.id}`).modal('show');
             },
             calenderMouseover : function(calender, jsCalender , view) {
                 jsCalender.preventDefault();
             }
         })
+        */
+    });
 
     </script>

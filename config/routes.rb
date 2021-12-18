@@ -28,6 +28,7 @@ scope module: :public do
   resources :events,only: [:new,:show,:create,:edit,:update,:destroy] do
     resources :event_comments,only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
+
   end
   resources :groups do
     get "join" => "groups#join"

@@ -23,13 +23,11 @@ class Public::UsersController < ApplicationController
   end
 
   def erasure
-
     @user = User.find(params[:id])
   end
 
   def leave
     @user = User.find(user.id)
-
     if @user.update(is_delete: true)
       sign_out current_user
     end

@@ -16,6 +16,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
 //= require moment
 //= require fullcalendar
 //= require_tree .
@@ -45,8 +46,3 @@ $(document).ready(function () {
   });
 });
 /*global $*/
-$(document).ready(function () {
-  $('.jquery').on('click', function(){
-    $(this).css('color','red');
-  });
-});

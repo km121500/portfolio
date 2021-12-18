@@ -9,7 +9,6 @@ class Public::EventsController < ApplicationController
     @event_comment = EventComment.new
   end
   
-
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
@@ -30,13 +29,12 @@ class Public::EventsController < ApplicationController
     end
   end
   
-
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
   end
-
+  
   private
 
   def event_params

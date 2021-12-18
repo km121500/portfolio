@@ -1,3 +1,4 @@
+/*global $*/
 //updateした内容を差し替え
 $('#inputEditForm').html('<%= escape_javascript(render("calenders/edit", calenders: @calenders)) %>');
 //モーダル背景画面を消す

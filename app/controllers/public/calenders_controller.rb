@@ -4,6 +4,7 @@ class Public::CalendersController < ApplicationController
     calender.save!
     @calenders = Calender.where(user_id: current_user.id)
   end
+  
   def update
     calender = Calender.find(params[:id])
     @calenders = Calender.where(user_id: current_user.id)

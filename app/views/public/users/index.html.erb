@@ -1,3 +1,10 @@
 <% if current_user != @user %>
   <%= link_to 'Begin Chat', chat_path(@user.id) %>
 <% end %> 
+<% @events.each do |event| %>
+<div>
+  <p>ショップ名：<%= event.title %></p>
+  <p>説明：<%= event.body %></p>
+  <p>ユーザーネーム：<%= event.user.name %></p>
+</div>
+<% end %>

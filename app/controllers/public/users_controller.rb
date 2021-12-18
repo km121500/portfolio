@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
 
   def index
     @user = User.find(params[:id])
+    @events = @user.events.page(params[:page]).reverse_order
   end
 
   def show
@@ -34,14 +35,29 @@ class Public::UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def user_all
+    @users = User.all
+  end
+
   def calender
     @user = User.find(params[:id])
     @calenders = Calender.where(user_id: @user.id)
     @calender = Calender.new
+    @events = []
+    @events.push(
+      title:'テスト',
+      start:'2021-12-18',
+      end:'2021-12-18'
+    )
+    @events.push(
+      title:'テスト２',
+      start:'2021-12-19',
+      end:'2021-12-19'
+    )
   end
 
   def bookmark
-  @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 
   private

@@ -1,4 +1,7 @@
 class Public::EventsController < ApplicationController
+  def index
+    @events = Event.all
+  end
   
   def new
     @event = Event.new
@@ -32,7 +35,7 @@ class Public::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path
+    redirect_to root_path
   end
   
   private

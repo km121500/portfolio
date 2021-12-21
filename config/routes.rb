@@ -36,10 +36,11 @@ scope module: :public do
     get "send/mail" => "groups#send_mail"
   end
   get 'users/:id/calender'=>'users#calender', as: 'calender_user'
-  resources :calenders
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
   get '/search', to: 'searches#search'
+  resources :calendars
+  resources :notifications, only: :index
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

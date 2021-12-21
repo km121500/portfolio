@@ -5,6 +5,7 @@ class Public::BookmarksController < ApplicationController
     @event = Event.find(params[:event_id])
     bookmark = @event.bookmarks.new(user_id: current_user.id)
     if bookmark.save
+      @event.create_notification_like!(current_user)
       redirect_to request.referer
     else
       redirect_to request.referer

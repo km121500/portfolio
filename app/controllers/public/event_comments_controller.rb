@@ -1,10 +1,11 @@
 class Public::EventCommentsController < ApplicationController
   def create
-    event = Event.find(params[:event_id])
-    comment = current_user.event_comments.new(event_comment_params)
-    comment.event_id = event.id
-    comment.save
-    redirect_to event_path(event)
+    @event = Event.find(params[:event_id])
+    @comment = current_user.event_comments.new(event_comment_params)
+    @comment.event_id = @event.id
+    @comment.save
+    @event.create_notification_comment!(current_user, @comment.id)
+    redirect_to event_path(@event)
   end
 
   def destroy

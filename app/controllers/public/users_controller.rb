@@ -39,23 +39,6 @@ class Public::UsersController < ApplicationController
     @users = User.all
   end
 
-  def calender
-    @user = User.find(params[:id])
-    @calenders = Calender.where(user_id: @user.id)
-    @calender = Calender.new
-    @events = []
-    @events.push(
-      title:'テスト',
-      start:'2021-12-18',
-      end:'2021-12-18'
-    )
-    @events.push(
-      title:'テスト２',
-      start:'2021-12-19',
-      end:'2021-12-19'
-    )
-  end
-
   def bookmark
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end

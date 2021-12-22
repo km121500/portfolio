@@ -17,60 +17,43 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
-#slideshow_height{
-  height: 300px;
-}
-.image1 {
-  background-image: url(test1.jpg);
-}
-.image2 {
-  background-image: url(test2.jpg);
-}
-.image3 {
-  background-image: url(test3.jpg);
-}
-.image4 {
-  background-image: url(test4.jpg);
-}
-.image5 {
-  background-image: url(test5.jpg);
-}
 
 // 全体
 body{
   margin: 0;
 }
+a{
+color:black;
+}
 main{
-  background-color:#F5F5DC;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
 
 }
 header{
   // background-color:#434343;
-  color:white;
 }
-// トップ画面
-.top{
-  width: 80%;
-  display: flex;
-  margin: 0 auto;
- 
+.side-menu{
+ margin-right:30px;
+ margin-top:20px;
+ min-width:30vh;
 }
-// トップ画面
-
-//説明画面
-.introduction{
- hight: 100px;
-}
-// 説明画面終わり
-
-// サイド画面
-.top-nav{
-  width:700px;
-  margin-right:30px;
-}
-.top-nav-chunk{
-white-space: nowrap;
+.side-chunk{
 text-align: center;
+}
+.search-side{
+
+}
+.search{
+  height: 150px;
+  background-color:Menu;
+}
+.background-image6{
+  height: 150px;
+}
+.image6{
+  background-image: url(image6.jpg);
 }
 // サイド画面終わり
 #heading05{
@@ -144,25 +127,3 @@ text-align: center;
     border-top-color:#f0f0f0;
     z-index:1;
 }
-
-// メイン画面
-.top-main{
-}
-.top-event{
-display: flex;
-flex-wrap:wrap-reverse;
-justify-content:center;
-justify-content:space-between;
-}
-.event-form{
-}
-.event{
- width: 250px;
- background-color:white;
- margin-bottom:20px;
-}
-.event-left{
-  text-align: center;
-}
-// メイン画面終わり
-

@@ -1,4 +1,10 @@
-      <!-----------------------------スライドショー----------------------------->
+
+       <!-----------------------------メイン画面----------------------------->
+  <div class="top mt-3">
+     <!-----------------------------サイド画面----------------------------->
+        <!-----------------------------メイン画面----------------------------->
+      <div class="top-main">
+    <!-----------------------------スライドショー----------------------------->
           <div id="slideshow_height">
             <div id="theTarget">
               <div class="image1"></div>
@@ -8,36 +14,23 @@
               <div class="image5"></div>
             </div>
           </div>
-       <!-----------------------------スライドショー終わり----------------------------->  
-       <div class="introduction">
-         <div>
+    <!-----------------------------スライドショー終わり----------------------------->
+  <!-----------------------------せつめい----------------------------->
+         <div class="introduction">
 
          </div>
-       </div>
-       <!-----------------------------メイン画面----------------------------->     
-  <div class="top mt-3">
-     <!-----------------------------サイド画面----------------------------->  
-      <div class="top-nav">
-        <div class="top-nav-chunk">
-            <h1 id="heading05">メニュー</h1>
-        <h3><strong><%= link_to "イベント一覧",root_path, class: 'nav-link text-dark' %></strong></h3>
-        <h3><strong><%= link_to "グループ一覧" ,groups_path, class: 'nav-link text-dark' %></strong></h3>
-        </div>
-      </div>
-       <!-----------------------------サイド画面-終わり---------------------------->  
-        <!-----------------------------メイン画面-----------------------------> 
-      <div class="top-main">
-        <h1 id="heading05">イベント一覧</h1>
+  <!-----------------------------せつめい終わり----------------------------->
+        <h1>イベント一覧</h1>
         <div class="top-event">
           <% @events.each do |event| %>
           <div class="event-form">
             <div class="event">
               <div class="event-left">
               <%= link_to event_path(event) do %>
-              <h5><strong><%= event.title %></br></strong></h5>
               <%= attachment_image_tag event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %></br>
               </div>
               <div class="event-down">
+                <h5><strong><%= event.title %></br></strong></h5>
                 <strong>日付：</strong><%= event.date %>
                 <strong>県：</strong><%= event.place %></br>
               <% end %>
@@ -46,15 +39,15 @@
                 <% end %>
                 <%= link_to "詳細を見る",event_path(event) %>
                 <% if event.user == current_user %>
-                <%= link_to "削除",event_path(event),method: :delete %>
-                <%= link_to "編集",edit_event_path(event) %>
+                <%= link_to "削除",event_path(event),method: :delete , class: 'danger' %>
+                <%= link_to "編集",edit_event_path(event) ,class: 'success' %>
                 <% end %>
               </div>
             </div>
           </div>
           <% end %>
-        </div>  
+        </div>
       </div>
-      <!-----------------------------メイン画面終わり-----------------------------> 
-<!-----------------------------メイン画面終わり-----------------------------> 
+      <!-----------------------------メイン画面終わり----------------------------->
+<!-----------------------------メイン画面終わり----------------------------->
   </div>

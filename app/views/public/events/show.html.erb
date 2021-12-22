@@ -1,52 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
-    </div>
+<div class="event-show">
     
-    <div class="col-md-6">
-      <%= @event.title %>
-      <%= @event.date %>
-      <%= @event.place %>
-      <%= @event.user.name %>
-      <%= render 'public/relationships/button', event: @event %>
-    
-    
-    <tbody>
-      <tr>
-        <td><%= @event.user.name %></td>
-        <td><%= @event.title %></td>
-        <td><%= @event.body %></td>
-        <td><%= link_to "編集", edit_event_path(@event) %></td>
-        <% if @event.bookmarked_by?(current_user) %>
-          <td><%= link_to "ブックマークを外す", event_bookmarks_path(@event), method: :delete %></td>
-        <% else %>
-          <td><%= link_to "ブックマーク", event_bookmarks_path(@event), method: :post %></td>
-        <% end %>
-      </tr>
-    </tbody>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="">
-    <div>
-      <h3>コメント</h3>
-      <% @event.event_comments.each do |event_comment| %>
-        <%= event_comment.user.name %>
-        <%= event_comment.created_at.strftime('%Y/%m/%d') %><%= event_comment.comment %></br>
-          <% if event_comment.user == current_user %>
-          <%= link_to "削除",event_event_comment_path(event_comment.event, event_comment), method: :delete %></br>
+    <div class="event-show-main mt-4">
+        
+        <div class="image">
+          <% if @event.bookmarked_by?(current_user) %>
+            <%= link_to "ブックマークを外す", event_bookmarks_path(@event), method: :delete ,class: "btn-info h3" %>
+          <% else %>
+            <%= link_to "ブックマーク", event_bookmarks_path(@event), method: :post ,class: "btn-info h3" %>
           <% end %>
-      <% end %>
+          <div>
+          <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+          </div>
+        </div>
+        
+        <div class="event-show-right">
+           <%= attachment_image_tag @user,:image ,:fill, 50, 50,format: 'jpeg',fallback: "no_image.jpeg" %>
+          <h4><%= @event.user.name  %></h4> <%= render 'public/relationships/button', event: @event %>
+          <%= link_to "編集", edit_event_path(@event) ,class: "d-inline-block success" %></br>
+          <h1><strong>イベント名：<%= @event.title %></strong></h1></br>
+          <h4>日付：<%= @event.date %></h4></br>
+          <h4>都道府県：<%= @event.place %></h4></br>
+          <h4><%= @event.body %></h4>
+        </div>
     </div>
     
-      <div>
-      <%= form_with(model:[@event,@event_comment], local: true) do |f| %>
-      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに",class: "col-md-8" %>
-      <%= f.submit "送信する" %>
-      <% end %>
-      </div>
-  </div>
+
+        <div class='comment'>
+          <h3>コメント</h3>
+          <div class='comment-chunk'>
+          <% @event.event_comments.each do |event_comment| %>
+          <%= event_comment.created_at.strftime('%Y/%m/%d')  %>
+          <%= event_comment.user.name %>
+          <%= event_comment.comment %></br>
+              <% if event_comment.user == current_user %>
+               <%= link_to "削除",event_event_comment_path(event_comment.event, event_comment), method: :delete,class: 'd-inline-block '%>
+              <% end %>
+          <% end %>
+          </div>
+        </div>
+        
+          <div>
+          <%= form_with(model:[@event,@event_comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows: '5',placeholder: "コメントをここに",class: "col-md-8 "%></br>
+          <%= f.submit "送信する" ,class: "btn btn-success"%>
+          <% end %>
+          </div>
 </div>

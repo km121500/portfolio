@@ -7,6 +7,9 @@
     
     <div class="mt-5">
     <%= form_with model:@user,url: user_path,local:true do |f|%>
+     <%= attachment_image_tag @user, :image, :fill, 60, 60, fallback: "no_image.jpg"%>
+          <label for="inputImage">ProfileImage</label>
+          <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
       <div class="form-group">
         <%= f.label :氏名 , class: "col-md-2" %>
         <%= f.text_field :name, autocomplete: "last_name"%>

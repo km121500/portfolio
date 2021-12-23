@@ -54,6 +54,13 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%' + content + '%')
     end
   end
+ 
+   # 未読の通知が存在するか確認(チャット)
+  def unchecked_chats?
+    my_rooms_ids = UserRoom.select(:room_id).where(user_id: id)
+    other_user_ids = UserRoom.select(:user_id).where(room_id: my_rooms_ids).where.not(user_id: id)
+    Chat.where(user_id: other_user_ids, room_id: my_rooms_ids).where.not(checked: true).any?
+  end
 
   # 　フォロー機能
   def create_notification_follow!(current_user)

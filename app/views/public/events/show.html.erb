@@ -1,8 +1,10 @@
+<%= render 'layouts/sidemenu'%>
+
 <div class="event-show">
     
     <div class="event-show-main mt-4">
         
-        <div class="image">
+        <div class="image mr-4">
           <% if @event.bookmarked_by?(current_user) %>
             <%= link_to "ブックマークを外す", event_bookmarks_path(@event), method: :delete ,class: "btn-info h3" %>
           <% else %>

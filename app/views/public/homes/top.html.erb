@@ -1,4 +1,4 @@
-
+<%= render 'layouts/sidemenu'%>
        <!-----------------------------メイン画面----------------------------->
   <div class="top mt-3">
      <!-----------------------------サイド画面----------------------------->
@@ -20,7 +20,7 @@
 
          </div>
   <!-----------------------------せつめい終わり----------------------------->
-        <h1>イベント一覧</h1>
+        <p class="sample_h_4">イベント一覧</p>
         <div class="top-event">
           <% @events.each do |event| %>
           <div class="event-form">
@@ -34,7 +34,7 @@
                 <strong>日付：</strong><%= event.date %>
                 <strong>県：</strong><%= event.place %></br>
               <% end %>
-                投稿者：<%= link_to users_path(event) do %>
+                投稿者：<%= link_to users_path(event.user) do %>
                 <%= event.user.name %></br>
                 <% end %>
                 <%= link_to "詳細を見る",event_path(event) %>

@@ -36,7 +36,7 @@ scope module: :public do
     get "send/mail" => "groups#send_mail"
   end
   get 'users/:id/calender'=>'users#calender', as: 'calender_user'
-  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :rooms, only: %i[create index show]
   resources :chats, only: [:create]
   get '/search', to: 'searches#search'
   resources :calendars

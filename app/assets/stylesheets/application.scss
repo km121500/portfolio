@@ -21,6 +21,8 @@
 // 全体
 body{
   margin: 0;
+  font-family: YuGothic,'Yu Gothic';
+  background-image: url(what-the-hex.png);
 }
 a{
 color:black;
@@ -47,13 +49,14 @@ text-align: center;
 }
 .search{
   height: 150px;
-  background-color:Menu;
+  background-color:#EEEEEE;
 }
 .background-image6{
-  height: 150px;
+  height: 300px;
 }
 .image6{
-  background-image: url(image6.jpg);
+  background-image: url(images.jpeg);
+  background-size: cover;
 }
 // サイド画面終わり
 #heading05{

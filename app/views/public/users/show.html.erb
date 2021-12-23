@@ -1,3 +1,4 @@
+<%= render 'layouts/sidemenu'%>
 <div class="container">
   <div class="mt-5">
 
@@ -8,11 +9,12 @@
         <div class="mt-4 mb-4 btn-group align-items-center">
         <h4 class="font-weight-bold pt-2 ">登録情報</h4>
         <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4"%>
-        <td><%= link_to "フォロー一覧",user_followings_path(@user) %></td>
-        <td><%= link_to "フォロワー一覧",user_followers_path(@user) %></td>
+        <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2' %></td>
+        <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2' %></td>
         </div>
-        <%= link_to 'ブックマーク一覧',bookmark_path %>
-          <%= attachment_image_tag @user, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
+        <%= link_to 'ブックマーク一覧',bookmark_path,class: 'btn btn-primary rounded pl-4 pr-4 ml-2' %>
+          <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       <div class="col-md-7 px-0">
         <table class="table table-bordered  "border="1">
           <tr class="border">
@@ -24,7 +26,7 @@
             <td class="col-5 border-dark"><%= @user.email %></td>
           </tr>
           </table>
-           <%= link_to "退会する", erasure_user_path ,class: "btn btn-danger offset-2 pr-4 pl-4"%>
+           
       </div>
       </div>
   </div>

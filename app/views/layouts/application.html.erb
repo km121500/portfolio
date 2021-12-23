@@ -25,20 +25,25 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
           <%= link_to '投稿フォーム', new_event_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
           <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "通知",notifications_path %>
+          <%= link_to "通知", notifications_path, class: 'nav-link text-dark'  %>
         </li>
         <li class="nav-item">
-          <%= render 'layouts/search' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
+        
+        <%= link_to rooms_path, class: 'nav-link text-dark chat-notice' do %>
+        <i class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor" style="font-size: 1.5em;"></i>
+        <% if current_user.unchecked_chats? %>
+        <i class="fa fa-circle fa-xs n-circle-chat" style="color: blue;"></i>
+        <% end %>
+        <% end %>
+        
         <% else %>
         <li class="nav-item">
           <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
@@ -54,6 +59,7 @@
   </header>
     <main>
       <%= yield %>
+      
     </main>
   </body>
 </html>

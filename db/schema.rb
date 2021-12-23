@@ -41,11 +41,14 @@ ActiveRecord::Schema.define(version: 2021_12_19_064048) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.text "message"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.string "message", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_chats_on_room_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "event_comments", force: :cascade do |t|
@@ -111,10 +114,13 @@ ActiveRecord::Schema.define(version: 2021_12_19_064048) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_user_rooms_on_room_id"
+    t.index ["user_id", "room_id"], name: "index_user_rooms_on_user_id_and_room_id", unique: true
+    t.index ["user_id"], name: "index_user_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,13 +13,11 @@
         <% when 'event_comment' then %>
           <% if notification.event.user_id == visited.id %>
           <%= link_to "あなたの投稿", root_path, style: "font-weight: bold;" %>
-        <% else %>
-          <%= image_tag avatar_url(notification.event.user).to_s, class: "icon_mini" %>
-          <%= notification.event.user.name + 'さんの投稿' %>
           <%= "にコメントしました" %>
           <p class="text-muted mb-0"></p>
           <%= EventComment.find_by(id: notification.event_comment_id)&.comment %>
-          <% end %>
+        <% else %>
+        <% end %>
         <% end %>
         
         <div class="small.text-muted.text-right">

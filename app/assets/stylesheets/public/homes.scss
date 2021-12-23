@@ -1,3 +1,64 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#slideshow_height{
+  height: 500px;
+}
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
+}
+.image5 {
+  background-image: url(test5.jpg);
+}
+
+// トップ画面
+
+// トップ画面
+
+//説明画面
+.introduction{
+  height:200px;
+}
+// 説明
+.sample_h_4{
+font-size: 1.5em;/* フォントサイズ */
+font-weight: bold;/* フォント太さ */
+padding-top: 1em;
+padding-bottom: 1em;
+margin-bottom: 2em;
+border-top: 3px solid #3f9613;/* 上の線 */
+border-bottom: 3px solid #409614;/* 下の線 */
+color: #409614;/* フォント色 */
+text-align: center;/* テキストの位置 */
+}
+// メイン画面
+.top-main{
+}
+.top-event{
+display: flex;
+flex-wrap:wrap;
+justify-content:center;
+justify-content:space-between;
+}
+.event-form{
+}
+.event{
+ width: 300px;
+ background-color:white;
+ margin-bottom:20px;
+}
+.event-left{
+  text-align: center;
+}
+// メイン画面終わり
+

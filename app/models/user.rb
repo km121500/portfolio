@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+ attachment :image
   # フォローフォロワー機能
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -52,6 +53,13 @@ class User < ApplicationRecord
     else
       User.where('name LIKE ?', '%' + content + '%')
     end
+  end
+ 
+   # 未読の通知が存在するか確認(チャット)
+  def unchecked_chats?
+    my_rooms_ids = UserRoom.select(:room_id).where(user_id: id)
+    other_user_ids = UserRoom.select(:user_id).where(room_id: my_rooms_ids).where.not(user_id: id)
+    Chat.where(user_id: other_user_ids, room_id: my_rooms_ids).where.not(checked: true).any?
   end
 
   # 　フォロー機能

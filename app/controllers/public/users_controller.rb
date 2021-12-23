@@ -17,7 +17,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "会員情報を編集しました"
-      redirect_to users_path(@user)
+      redirect_to user_path(@user)
     else
       render "edit"
     end
@@ -46,7 +46,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name,:email,:image_id)
   end
 
 end

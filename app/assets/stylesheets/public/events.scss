@@ -1,3 +1,20 @@
 // Place all the styles related to the public/events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event-show{
+  min-width:70vh;
+}
+.event-show-main{
+   display:flex;
+   margin-top:20px;
+}
+.image{
+  min-widht:30vh;
+}
+.event-show-right{
+ width:1200px;
+}
+.comment-chunk{
+
+}

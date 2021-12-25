@@ -3,8 +3,8 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
-      <h2>グループ一覧</h2>
-      <%= link_to 'グループを作る', new_group_path %>
+      <h2><strong>グループ一覧</strong></h2>
+      <%= link_to 'グループを作る', new_group_path ,class: "btn btn-success text-white mb-2" %>
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -17,13 +17,12 @@
         <tbody>
           <% @groups.each do |group| %>
             <tr>
-              
               <td><%= attachment_image_tag(group, :image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
-              <td><%= link_to group.name, group_path(group) %></td>
-              <td><%= link_to group.introduction,group_path(group) %></td>
+              <td><h5><%= link_to group.name, group_path(group) ,class: '' %></h5></td>
+              <td><h5><%= link_to group.introduction,group_path(group) ,class: '' %></h5></td>
               <td>
                 <% if group.owner_id == current_user.id %>
-                  <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
+                  <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success text-white" %>
                 <% end %>
               </td>
             </tr>

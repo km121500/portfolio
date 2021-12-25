@@ -1,12 +1,12 @@
 <%= render 'layouts/sidemenu'%>
 <div>
   <% if current_user != @user %>
-    <%= link_to 'chatを始める', rooms_path(@user), method: :post %>
+    <%= link_to 'chatを始める', rooms_path(@user), method: :post ,class: "btn btn-info text-white mb-2 mt-4" %>
   <% end %>
   <p class="sample_h_4">イベント一覧</p>
   <div class="top-event">
     <% @events.each do |event| %>
-      <div class="event-form">
+      <div class="event-form mr-4">
         <div class="event">
           <div class="event-left">
           <%= link_to event_path(event) do %>
@@ -29,6 +29,5 @@
         </div>
       </div>
       <% end %>
-    </div>
   </div>
 </div>

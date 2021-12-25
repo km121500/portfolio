@@ -17,13 +17,17 @@
     <!-----------------------------スライドショー終わり----------------------------->
   <!-----------------------------せつめい----------------------------->
          <div class="introduction">
-
+            <div>
+              <h2 class="text-center text-info"><strong>ダンスのイベントを掲載できるサイトです！</strong></h2>
+              <h2 class="text-center"><strong>自由にイベントの投稿や閲覧をしてください</strong></h2>
+              <h2 class="text-center text-info"><strong>グループを作成し、練習会の募集も可能です！</strong></h2>
+            </div>
          </div>
   <!-----------------------------せつめい終わり----------------------------->
         <p class="sample_h_4">イベント一覧</p>
         <div class="top-event">
           <% @events.each do |event| %>
-          <div class="event-form">
+          <div class="event-form mr-2">
             <div class="event">
               <div class="event-left">
               <%= link_to event_path(event) do %>
@@ -39,8 +43,8 @@
                 <% end %>
                 <%= link_to "詳細を見る",event_path(event) %>
                 <% if event.user == current_user %>
-                <%= link_to "削除",event_path(event),method: :delete , class: 'danger' %>
-                <%= link_to "編集",edit_event_path(event) ,class: 'success' %>
+                <%= link_to "削除",event_path(event),method: :delete , class: 'text-danger pl-5' %>
+                <%= link_to "編集",edit_event_path(event) ,class: 'text-success pl-3' %>
                 <% end %>
               </div>
             </div>

@@ -8,13 +8,13 @@
         </div>
         <div class="mt-4 mb-4 btn-group align-items-center">
         <h4 class="font-weight-bold pt-2 ">登録情報</h4>
-        <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4"%>
-        <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2' %></td>
-        <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2' %></td>
+        <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4 text-white"%>
+        <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
+        <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
         </div>
 
-        <%= link_to 'ブックマーク一覧',bookmark_path,class: 'btn btn-primary rounded pl-4 pr-4 ml-2' %>
-          <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <%= link_to 'ブックマーク一覧',bookmark_path,class: 'btn btn-primary rounded pl-4 pr-4 ml-2 text-white' %>
+        <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       <div class="col-md-7 px-0">
         <table class="table table-bordered  "border="1">
           <tr class="border">

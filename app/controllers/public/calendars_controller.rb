@@ -1,4 +1,3 @@
 class Public::CalendarsController < ApplicationController
-  def inde
-  end 
+  def inde; end
 end

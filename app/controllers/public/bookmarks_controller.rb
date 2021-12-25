@@ -4,23 +4,14 @@ class Public::BookmarksController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     bookmark = @event.bookmarks.new(user_id: current_user.id)
-    if bookmark.save
-      @event.create_notification_like!(current_user)
-      redirect_to request.referer
-    else
-      redirect_to request.referer
-    end
+    bookmark.save
+    @event.create_notification_like!(current_user)
   end
 
   def destroy
     @event = Event.find(params[:event_id])
     bookmark = @event.bookmarks.find_by(user_id: current_user.id)
-    if bookmark.present?
-        bookmark.destroy
-        redirect_to request.referer
-    else
-        redirect_to request.referer
-    end
+    bookmark.present?
+    bookmark.destroy
   end
-  
 end

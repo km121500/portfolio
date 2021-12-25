@@ -1,8 +1,8 @@
-<%= form_with model:event, local:true do |f| %>
 
+<%= form_with model:event, local:true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
-        <%= attachment_image_tag event, :image ,:fill, 60, 60, fallback: "no_image.jpg"%>
-        <%= f.label :画像 %>
+        <%= attachment_image_tag event, :image ,:fill,300, 300, fallback: "no_image.jpg"%>
         <%= f.attachment_field :image, class: "form-control-file event_image" %>
     </div>
     <div class="form-group">
@@ -14,12 +14,12 @@
         <%= f.text_area :body, class: "form-control body" %>
     </div>
     <div class="form-group">
-        <%= f.label :場所（県を入力してください） %>
+        <%= f.label :場所（都道府県を入力してください） %>
         <%= f.text_field :place, class: "form-control place" %>
     </div>
     <div class="form-group">
         <%= f.label :日付 %>
         <%= f.text_field :date, class: "form-control date" %>
     </div>
-     <%= f.submit '投稿' %>
+     <%= f.submit '投稿',class: "btn btn-success" %>
 <% end %>

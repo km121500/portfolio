@@ -1,4 +1,4 @@
-
+<%= render 'layouts/sidemenu'%>
 <div class="container d-contents">
   <div class="row-md-12 mt-5">
     <div>
@@ -7,7 +7,7 @@
     
     <div class="mt-5">
     <%= form_with model:@user,url: user_path,local:true do |f|%>
-    
+    <%= render 'layouts/error_messages', model: f.object %>
     <%= attachment_image_tag @user, :image, :fill, 60, 60, fallback: "no_image.jpg"%>
     
       <div class="form-group">

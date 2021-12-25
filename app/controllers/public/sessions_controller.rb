@@ -24,18 +24,18 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-def user_state
+  def user_state
     @user = User.find_by(email: params[:user][:email])
-    return if !@user
+    return unless @user
+
     if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
-       # is_deletedの値がfalseだった場合createアクションを実行させる
-        flash[:error] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_user_registration_path
+      # is_deletedの値がfalseだった場合createアクションを実行させる
+      flash[:error] = '退会済みです。再度ご登録をしてご利用ください。'
+      redirect_to new_user_registration_path
       # is_deletedの値がtrueだった場合
       # falseだった場合サインアップ画面に遷移する処理を実行する
     else
-        flash[:error] = "項目を入力してください"
+      flash[:error] = '項目を入力してください'
     end
-end
-
+  end
 end

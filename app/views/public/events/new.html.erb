@@ -3,6 +3,7 @@
     <div>
     <h2>新規投稿</h2>
     <%= form_with model:@event, local:true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
             <strong><%= f.label :画像 %></strong>
             <%= f.attachment_field :image, class: "form-control-file event_image" %>

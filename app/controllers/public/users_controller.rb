@@ -1,5 +1,4 @@
 class Public::UsersController < ApplicationController
-
   def index
     @user = User.find(params[:id])
     @events = @user.events.page(params[:page]).reverse_order
@@ -16,10 +15,10 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "会員情報を編集しました"
+      flash[:success] = '会員情報を編集しました'
       redirect_to user_path(@user)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -29,9 +28,7 @@ class Public::UsersController < ApplicationController
 
   def leave
     @user = User.find(user.id)
-    if @user.update(is_delete: true)
-      sign_out current_user
-    end
+    sign_out current_user if @user.update(is_delete: true)
     redirect_to user_path
   end
 
@@ -46,7 +43,6 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:image_id)
+    params.require(:user).permit(:name, :email, :image)
   end
-
 end

@@ -1,5 +1,4 @@
 class Admin::UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
   end
@@ -12,14 +11,15 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to admin_user_path(@user.id)
-      flash[:notice] = "変更を保存しました"
+      flash[:notice] = '変更を保存しました'
     else
-      render "edit"
+      render 'edit'
     end
   end
-  
+
   private
+
   def user_params
-    params.require(:user).permit(:name,:email,:is_deleted)
+    params.require(:user).permit(:name, :email, :is_deleted)
   end
 end

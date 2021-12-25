@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -58,14 +58,14 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'devise'
 gem 'bootstrap', '~> 4.5'
+gem 'devise'
 gem 'font-awesome-sass', '~> 5.13'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'jquery-rails', '4.3.3'
+gem 'refile-mini_magick'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'pry-rails'
@@ -74,5 +74,9 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
+gem 'rails-i18n'
+

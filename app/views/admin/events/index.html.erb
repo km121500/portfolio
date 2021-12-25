@@ -1,0 +1,29 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h2><strong>イベント一覧</strong></h2>
+      <table class='table '>
+        <thead>
+          <tr>
+            <th>ユーザー名</th>
+            <th>タイトル</th>
+            <th>場所</th>
+            <th>日付</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+          <tr>
+          <td><h5><%= event.user.name %></h5></td></br>
+          <td><h5><%= event.title  %></h5></td>
+          <td><h5><%= event.place  %></h5></td>
+          <td><h5><%= event.date  %></h5></td>
+          <td><%= link_to "削除",admin_event_path(event),method: :delete , class: 'text-danger pl-5 btn btn-dunger text-white' %></td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

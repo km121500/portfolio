@@ -36,14 +36,25 @@
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
-        
+
         <%= link_to rooms_path, class: 'nav-link text-dark chat-notice' do %>
-        <i class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor" style="font-size: 1.5em;"></i>
+        <li class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor" style="font-size: 1.5em;"></li>
+        <% end %>
+
         <% if current_user.unchecked_chats? %>
-        <i class="fa fa-circle fa-xs n-circle-chat" style="color: blue;"></i>
+        <ii class="fa fa-circle fa-xs n-circle-chat" style="color: blue;"></i>
         <% end %>
-        <% end %>
-        
+
+         <% elsif admin_signed_in? %>
+         <li>
+           <%= link_to "ユーザー一覧", admin_root_path, class: "mx-3" %>
+         </li>
+          <li>
+            <%= link_to "イベント一覧", admin_events_path, class: "mx-3" %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "mx-3" %>
+          </li>
         <% else %>
         <li class="nav-item">
           <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
@@ -59,7 +70,7 @@
   </header>
     <main>
       <%= yield %>
-      
+
     </main>
   </body>
 </html>

@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        title: タイトル
+        image: 画像
+        date: 日付
+        place: 都道府県
+        body: 内容

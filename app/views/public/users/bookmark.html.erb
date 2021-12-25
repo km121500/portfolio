@@ -1,23 +1,31 @@
-<table>
-  <caption>ブックマーク一覧</caption>
-  <thead>
-    <tr>
-      <th>投稿者名</th>
-      <th>タイトル</th>
-      <th>本文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.each do |bookmark| %>
+<%= render 'layouts/sidemenu'%>
+<div >
+  <h2>ブックマーク一覧</h2>
+  
+  <table class='table table-hover table-inverse'>
+    <thead>
       <tr>
-        <td><%= bookmark.event.user.name %></td>
-        <td>
-          <%= link_to event_path(bookmark.event) do %>
-            <%= bookmark.event.title %>
-          <% end %>
-        </td>
-        <td><%= bookmark.event.body %></td>
+        <th></th>
+        <th>投稿者名</th>
+        <th>タイトル</th>
+        <th>開催日</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+          <td><%= attachment_image_tag bookmark.event,:image, fallback: "no_image.jpg",size: "5x200" %></td>
+          <td><h5><%= bookmark.event.user.name %></h5></td>
+          <td>
+            <%= link_to event_path(bookmark.event) do %>
+              <h5><%= bookmark.event.title %></h5>
+            <% end %>
+          </td>
+          <td><h5><%= bookmark.event.date %></h5></td>
+          <td><%= link_to '詳細を見る',event_path(bookmark),class: 'btn btn-info h5 text-white' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

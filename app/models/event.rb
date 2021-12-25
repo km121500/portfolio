@@ -4,29 +4,35 @@ class Event < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
   has_many :notifications, dependent: :destroy
+  validates :title, presence: { message: "は１文字以上入力してください。" }, length: {maximum: 20}
+  validates :image,presence:  { message: "を選択してください。" }
+  validates :date,presence:{ message: "は１文字以上入力してください。" }
+  validates :place,presence:{ message: "は１文字以上入力してください。" }
+  validates :body, presence:{ message: "は１文字以上入力してください。" }, length: {maximum: 200}
   
   attachment :image
-  
+
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
   end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
       Event.where(place: content)
     elsif method == 'forward'
-      Event.where('place LIKE ?', content+'%')
+      Event.where('place LIKE ?', content + '%')
     elsif method == 'backward'
-      Event.where('place LIKE ?', '%'+content)
+      Event.where('place LIKE ?', '%' + content)
     else
-      Event.where('place LIKE ?', '%'+content+'%')
+      Event.where('place LIKE ?', '%' + content + '%')
     end
   end
 
   # 通知機能
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and event_id = ? and action = ? ", current_user.id, user_id, id, 'bookmark'])
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and event_id = ? and action = ? ', current_user.id,
+                               user_id, id, 'bookmark'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(
@@ -35,14 +41,11 @@ class Event < ApplicationRecord
         action: 'bookmark'
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+      notification.checked = true if notification.visitor_id == notification.visited_id
       notification.save if notification.valid?
     end
   end
-  
-  
+
   # コメントの通知機能
   def create_notification_comment!(current_user, event_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
@@ -63,11 +66,7 @@ class Event < ApplicationRecord
       action: 'event_comment'
     )
     # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
-  
-
 end

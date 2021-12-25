@@ -5,6 +5,6 @@ class CreateUserRooms < ActiveRecord::Migration[5.2]
       t.references :room, foreign_key: true, null: false
       t.timestamps
     end
-    add_index :user_rooms, [:user_id, :room_id], unique: true
+    add_index :user_rooms, %i[user_id room_id], unique: true
   end
 end

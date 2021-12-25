@@ -1,7 +1,8 @@
+<%= render 'layouts/sidemenu'%>
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2><%=@group.name %>メンバーへのメール</h2>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 ">
+      <h2 class="text-nowrap"><%=@group.name %>メンバーへのメール</h2>
         <%= form_with url: group_send_mail_path(@group), method: :get, local:true do |f| %>
           <div class="form-group">
             <%= f.label :title %>
@@ -11,7 +12,7 @@
             <%= f.label :content %>
             <%= f.text_area :content, class: 'form-control book_body' %>
           </div>
-          <div class="form-group text-right">
+          <div class="form-group ">
             <%= f.submit "送信", class: 'btn btn-success' %>
           </div>
         <% end %>

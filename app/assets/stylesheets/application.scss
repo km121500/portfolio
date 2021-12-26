@@ -19,13 +19,13 @@
 * {
   box-sizing: border-box;
 }
- 
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: YuGothic,'Yu Gothic';
-  background-image: url(what-the-hex.png);
+  background-image: image-url("what-the-hex.png");
 }
 
 // 全体
@@ -36,7 +36,7 @@ main{
   width: 80%;
   display: flex;
   margin: 0 auto;
-
+  min-height: 100vh;
 }
 header{
   // background-color:#434343;
@@ -57,10 +57,15 @@ text-align: center;
   background-color:#EEEEEE;
 }
 .background{
-  height:300px;
+
 }
-.imageapple{
-   background-image: url(ph-aboutdance2.jpg);
+.background-image6{
+
+}
+.side-image{
+  height: 300px;
+  background-image: image-url("large.jpeg");
+  background-size: 100% 100%;
 }
 // サイド画面終わり
 #heading05{
@@ -139,4 +144,9 @@ text-align: center;
 }
 .field_with_errors {
   display: contents;
+}
+
+footer{
+  height:250px;
+  background-color:#000033;
 }

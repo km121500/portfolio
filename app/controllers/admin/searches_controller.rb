@@ -3,8 +3,6 @@ class Admin::SearchesController < ApplicationController
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]
-    @records = if @model == 'user'
-      User.search_for(@content, @method)
-    end
+    @records = (User.search_for(@content, @method) if @model == 'user')
   end
 end

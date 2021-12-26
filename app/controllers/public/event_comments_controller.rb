@@ -5,7 +5,6 @@ class Public::EventCommentsController < ApplicationController
     @comment.event_id = @event.id
     @comment.save
     @event.create_notification_comment!(current_user, @comment.id)
-    redirect_to event_path(@event)
   end
 
   def destroy

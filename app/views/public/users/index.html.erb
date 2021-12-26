@@ -1,5 +1,6 @@
 <%= render 'layouts/sidemenu'%>
 <div>
+  <div><h2 class="text-secondary"><%= @user.name %>さんのイベント一覧</h2></div>
   <% if current_user != @user %>
     <%= link_to 'chatを始める', rooms_path(@user), method: :post ,class: "btn btn-info text-white mb-2 mt-4" %>
   <% end %>

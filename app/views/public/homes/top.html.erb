@@ -18,9 +18,10 @@
   <!-----------------------------せつめい----------------------------->
          <div class="introduction">
             <div>
-              <h2 class="text-center text-info"><strong>ダンスのイベントを掲載できるサイトです！</strong></h2>
-              <h2 class="text-center"><strong>自由にイベントの投稿や閲覧をしてください</strong></h2>
-              <h2 class="text-center text-info"><strong>グループを作成し、練習会の募集も可能です！</strong></h2>
+              <h2 class="text-center text-secondary "><strong>introduction</strong></h2>
+              <h2 class="text-center text-info">ダンスのイベントを掲載できるサイトです！</h2>
+              <h2 class="text-center">自由にイベントの投稿や閲覧をしてください</h2>
+              <h2 class="text-center text-info">グループを作成し、練習会の募集も可能です！</h2>
             </div>
          </div>
   <!-----------------------------せつめい終わり----------------------------->
@@ -31,7 +32,7 @@
             <div class="event">
               <div class="event-left">
               <%= link_to event_path(event) do %>
-              <%= attachment_image_tag event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %></br>
+              <%= attachment_image_tag event,:image ,:fill, 600, 600,format: 'jpeg',fallback: "no_image.jpeg" %></br>
               </div>
               <div class="event-down">
                 <h5><strong><%= event.title %></br></strong></h5>
@@ -51,6 +52,7 @@
           </div>
           <% end %>
         </div>
+        <div><%= paginate @events , theme: 'twitter-bootstrap-4'%></div>
       </div>
       <!-----------------------------メイン画面終わり----------------------------->
 <!-----------------------------メイン画面終わり----------------------------->

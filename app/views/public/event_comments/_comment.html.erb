@@ -1,0 +1,11 @@
+<h3>コメント</h3>
+<div class='comment-chunk'>
+<% event.event_comments.each do |event_comment| %>
+<%= event_comment.created_at.strftime('%Y/%m/%d')  %>
+<%= event_comment.user.name %>
+<%= event_comment.comment %>
+    <% if event_comment.user == current_user %>
+     <%= link_to "削除",event_event_comment_path(event_comment.event, event_comment), method: :delete,class: 'd-inline-block text-danger'%></br>
+    <% end %>
+<% end %>
+</div>

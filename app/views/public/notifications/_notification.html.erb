@@ -2,6 +2,7 @@
 <% visited = notification.visited %>
   <div class='col-md-6.mx-auto'>
     <div class='form-inline'>
+        <%= attachment_image_tag @user,:image ,:fill, 50, 50,format: 'jpeg',fallback: "no_image.jpeg" %>
         <%= visitor.name %>
         <%= 'さんが' %>
         <% case notification.action %>
@@ -19,7 +20,6 @@
         <% else %>
         <% end %>
         <% end %>
-        
         <div class="small.text-muted.text-right">
           <%= time_ago_in_words(notification.created_at).upcase %>
         </div>

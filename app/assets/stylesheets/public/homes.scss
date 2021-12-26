@@ -6,19 +6,19 @@
   height: 500px;
 }
 .image1 {
-  background-image: url(detail_f9a8f734-5eb1-45be-9a56-b1347347681e.jpeg);
+  background-image: image-url("detail_f9a8f734-5eb1-45be-9a56-b1347347681e.jpeg");
 }
 .image2 {
-  background-image: url(ph-aboutdance2.jpg);
+  background-image: image-url("ph-aboutdance2.jpg");
 }
 .image3 {
-  background-image: url(MT1_0697.jpg.webp);
+  background-image: image-url("MT1_0697.jpg.webp");
 }
 .image4 {
-  background-image: url(g-hiphop.jpeg);
+  background-image: image-url("g-hiphop.jpeg");
 }
 .image5 {
-  background-image: url(g-punking.jpeg);
+  background-image: image-url("g-punking.jpeg");
 }
 
 // トップ画面
@@ -51,7 +51,7 @@ justify-content:space-between;
 }
 
 .event{
- width: 300px;
+ width: 250px;
  background-color:white;
  margin-bottom:20px;
 }

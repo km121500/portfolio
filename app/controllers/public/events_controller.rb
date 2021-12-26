@@ -16,9 +16,9 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
-       redirect_to root_path
+      redirect_to root_path
     else
-    render :new
+      render :new
     end
   end
 

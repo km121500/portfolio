@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :users, only: %i[show edit update]
-    resources :events,only: %i[index destroy]
+    resources :events, only: %i[index destroy]
     get '/search', to: 'searches#search'
   end
 

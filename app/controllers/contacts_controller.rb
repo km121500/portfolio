@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
   # 実際に送信するアクションになります。
   # ここで初めて入力内容を保存します。
   # セキュリティーのためにも一定時間で入力内容の削除を行ってもいいかもしれません。
-  
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
@@ -31,13 +31,13 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-  
+
   # 送信完了画面を使用する場合お使いください。
   def done
   end
-  
+
   private
-  
+
   def contact_params
     params.require(:contact)
           .permit(:email,

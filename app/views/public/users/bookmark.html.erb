@@ -23,7 +23,7 @@
             <% end %>
           </td>
           <td><h5><%= bookmark.event.date %></h5></td>
-          <td><%= link_to '詳細を見る',event_path(bookmark),class: 'btn btn-info h5 text-white' %></td>
+          <td><%= link_to '詳細を見る',event_path(bookmark.event.id),class: 'btn btn-info h5 text-white' %></td>
         </tr>
       <% end %>
     </tbody>

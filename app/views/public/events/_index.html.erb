@@ -1,27 +1,28 @@
-
-  <div class="top-event">
-    <% events.each do |event| %>
-    <div class="event-form mr-4">
-      <h3>"<%= @content %>"のイベント</h3>
-      <div class="event">
+  <div class="search-top mt-5">
+     <h3>検索結果 "<%= @content %>"</h3>
+    <div class="top-event">
+      <% events.each do |event| %>
+      <div class="event-form mr-2">
+        <div class="event">
           <div class="event-left">
           <%= link_to event_path(event) do %>
-          <%= attachment_image_tag event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %></br>
+          <%= attachment_image_tag event,:image ,:fill, 600, 600,format: 'jpeg',fallback: "no_image.jpeg" %></br>
           </div>
           <div class="event-down">
             <h5><strong><%= event.title %></br></strong></h5>
             <strong>日付：</strong><%= event.date %>
             <strong>県：</strong><%= event.place %></br>
           <% end %>
-          投稿者：<%= link_to users_path(event.user) do %>
+            投稿者：<%= link_to users_path(event.user) do %>
             <%= event.user.name %></br>
-          <% end %>
-          <%= link_to "詳細を見る",event_path(event) %>
-          <% if event.user == current_user %>
-            <%= link_to "削除",event_path(event),method: :delete , class: 'text-danger' %>
-            <%= link_to "編集",edit_event_path(event) ,class: 'success' %>
-          <% end %>
+            <% end %>
+            <%= link_to "詳細を見る",event_path(event) %>
+            <% if event.user == current_user %>
+            <%= link_to "削除",event_path(event),method: :delete , class: 'text-danger pl-5' %>
+            <%= link_to "編集",edit_event_path(event) ,class: 'text-success pl-3' %>
+            <% end %>
           </div>
+        </div>
       </div>
       <% end %>
     </div>

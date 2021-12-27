@@ -68,5 +68,6 @@ RSpec.configure do |config|
   # Prevent database truncation if the environment is production
   abort('The Rails environment is running in production mode!') if Rails.env.production?
   require 'rspec/rails'
-  require 'support/factory_bot' # ＜ーーー　追加
+  require 'support/factory_bot'
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end

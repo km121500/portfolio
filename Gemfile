@@ -79,3 +79,4 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+gem 'enum_help'

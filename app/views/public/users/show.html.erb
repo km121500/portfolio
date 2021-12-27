@@ -12,7 +12,6 @@
         <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
         <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
         </div>
-
         <%= link_to 'ブックマーク一覧',bookmark_path,class: 'btn btn-primary rounded pl-4 pr-4 ml-2 text-white' %>
         <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       <div class="col-md-7 px-0">

@@ -1,4 +1,6 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show,:user_all]
+  
   def index
     @user = User.find(params[:id])
     @events = @user.events.page(params[:page]).reverse_order
@@ -27,13 +29,13 @@ class Public::UsersController < ApplicationController
   end
 
   def leave
-    @user = User.find(user.id)
-    sign_out current_user if @user.update(is_delete: true)
-    redirect_to user_path
+    @user = User.find(current_user.id)
+    sign_out current_user if @user.update(is_deleted: true)
+    redirect_to root_path
   end
 
   def user_all
-    @users = User.all
+    @users = User.alll.order(created_at: :desc)
   end
 
   def bookmark

@@ -9,6 +9,11 @@
    display:flex;
    margin-top:20px;
 }
+.event-form{
+
+  
+}
+
 .image{
   min-widht:30vh;
 }
@@ -16,6 +21,21 @@
  width:1200px;
 }
 
+.top-event{
+display: flex;
+flex-wrap:wrap;
+justify-content:center;
+justify-content:space-between;
+}
+
+.event{
+ width: 250px;
+ background-color:white;
+ margin-bottom:20px;
+}
+.event-left{
+  text-align: center;
+}
 .comment-chunk{
 
 }

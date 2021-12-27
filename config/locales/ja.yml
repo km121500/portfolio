@@ -141,3 +141,11 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+    enums:
+      contact:
+      subject:
+      other: 'その他のお問い合わせ'
+      work: 'サイトについて'
+      recruit: 'ご意見'
+      method: '操作方法について'
+        

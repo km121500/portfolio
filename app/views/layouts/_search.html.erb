@@ -1,6 +1,6 @@
 <div class="search-form">
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.label :search ,class: "mt-3"%></br>
+    <%= f.label :search ,class: "mt-3 text"%></br>
     <%= f.text_field :content ,class: "pr-5 mb-3"%></br>
     <%= f.select :model, options_for_select({ "ユーザー" => "user", "県" => "event" }) %>
     <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>

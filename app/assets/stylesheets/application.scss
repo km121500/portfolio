@@ -39,7 +39,7 @@ main{
   min-height: 100vh;
 }
 header{
-  // background-color:#434343;
+  background-color:#F0F8FF;
 }
 .side-menu{
  margin-right:30px;
@@ -54,7 +54,7 @@ text-align: center;
 }
 .search{
   height: 150px;
-  background-color:#EEEEEE;
+  background-color:#D3D3D3;
 }
 .background{
 
@@ -67,6 +67,7 @@ text-align: center;
   background-image: image-url("large.jpeg");
   background-size: 100% 100%;
 }
+
 // サイド画面終わり
 #heading05{
     text-align:center;
@@ -149,4 +150,7 @@ text-align: center;
 footer{
   height:250px;
   background-color:#000033;
+}
+.contact{
+  width:800px;
 }

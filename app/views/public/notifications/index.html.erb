@@ -1,8 +1,10 @@
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-<% if notifications.exists? %>
-<%= render 'layouts/sidemenu' %>
-<%= render notifications %>
-<% else %>
-<%= render 'layouts/sidemenu'%>
-<p>通知はありません</p>
-<% end %>
+
+  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+  <% if notifications.exists? %>
+  <%= render 'layouts/sidemenu' %>
+  <%= render notifications %>
+  <% else %>
+  <%= render 'layouts/sidemenu'%>
+  <p>通知はありません</p>
+  <% end %>
+</div>

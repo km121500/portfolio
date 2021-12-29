@@ -4,38 +4,19 @@
 
 .event-show{
   min-width:70vh;
-}
-.event-show-main{
-   display:flex;
-   margin-top:20px;
-}
-.event-form{
 
-  
-}
-
-.image{
-  min-widht:30vh;
-}
-.event-show-right{
- width:1200px;
-}
-
-.top-event{
-display: flex;
-flex-wrap:wrap;
-justify-content:center;
-justify-content:space-between;
-}
-
-.event{
- width: 250px;
- background-color:white;
- margin-bottom:20px;
-}
-.event-left{
-  text-align: center;
-}
-.comment-chunk{
-
+    .event-show-main{
+       display:flex;
+       margin-top:20px;
+       
+    .image{
+      min-widht:30vh;
+    }
+    
+    .event-show-right{
+     width:1200px;
+    }
+    
+    }
+    
 }

@@ -26,8 +26,7 @@
 // トップ画面
 
 //説明画面
-.introduction{
-}
+
 // 説明
 .sample_h_4{
 font-size: 1.5em;/* フォントサイズ */
@@ -41,21 +40,3 @@ color: #409614;/* フォント色 */
 text-align: center;/* テキストの位置 */
 }
 // メイン画面
-.top-main{
-}
-.top-event{
-display: flex;
-flex-wrap:wrap;
-justify-content:center;
-justify-content:space-between;
-}
-
-.event{
- width: 250px;
- background-color:white;
- margin-bottom:20px;
-}
-.event-left{
-  text-align: center;
-}
-

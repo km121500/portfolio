@@ -3,9 +3,23 @@
     <div class="event-show-main mt-4">
         <div class="image mr-4" id="event_<%= @event.id %>" >
           <div class="bookmark-btn"><%= render 'public/bookmarks/button',event: @event %></div>
-          <div>
-          <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+          <!--画像の編集-->
+          <div class="rows">
+            <a class="lightbox" href="#photo01">
+            <figure class="photo01">
+              <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+              <p>Photo 01</p>
+            </figure>
+            </a>
+            <div class="lightbox-target" id="photo01">
+              <div class="container">
+                  <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+                <a class="lightbox-close" href="#">X</a>
+              </div>
+            </div>
           </div>
+          <!--画像置き場-->
+          <!--画像の編集-->
         </div>
         <div class="event-show-right">
               <%= attachment_image_tag @event.user,:image ,:fill, 50, 50,format: 'jpeg',fallback: "no_image.jpeg" %>

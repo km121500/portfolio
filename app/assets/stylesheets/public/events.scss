@@ -20,3 +20,108 @@
     }
     
 }
+
+// 画像のポップアップ
+.rows figure {/*表示されている画像。*/
+  height: 300px;
+  width: 300px;
+  margin: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  transition: all 1s ease-in-out;
+  background-repeat: no-repeat;
+  z-index: 2;
+  display: inline-block;
+  position: relative;
+}
+ 
+.rows a {/*拡大画像を表示させる為の要素*/
+  display: inline-block;
+  text-align: center;
+  margin: 40px;
+  text-decoration: none;
+  color: white;
+}
+ 
+.rows a p {/*テキスト表示。デフォルトでは透過しておく*/
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 45%;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+ 
+figure:hover p {/*テキスト表示*/
+  opacity: 1;
+}
+ 
+figure:after {/*オーバーレイ。デフォルトでは透過*/
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in-out 0s;
+  z-index: 99;
+}
+ 
+figure:hover:after {/*マウスホバーでオーバーレイ表示*/
+  opacity: 0.7;
+}
+ 
+.lightbox-target {/*lightbox*/
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 300;
+}
+ 
+.lightbox-target .container {
+  margin: auto;
+  position: absolute;
+  top: 35vh;
+  left: 30vw;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  transition: 0.5s ease-in-out;
+  text-align: left;
+  transform: translate3d(-50%, -50%, 0);
+}
+ 
+a.lightbox-close {/*閉じるボタン*/
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding-top: 10px;
+}
+ 
+.lightbox-target:target {
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+}
+ 
+.lightbox-target:target img {
+  height: 600px;
+  width: 600px;
+  vertical-align: top;
+}

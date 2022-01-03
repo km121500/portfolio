@@ -1,0 +1,9 @@
+DB_USERNAME="root"
+DB_PASSWORD="km081215"
+DB_HOST="rds-mysql-server.caeupladnenp.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="portfolio"
+
+TOMAIL='km121500@gmail.com'
+MAIL_USERNAME='km121500@gmail.com'
+MAIL_PASSWORD='oxnmqdniewsswwzv'
+GOOGLE_API_KEY="AIzaSyCA3zaYWQaItowoM-RTNKbQHwHnxcz6Xc0"

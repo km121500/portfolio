@@ -18,6 +18,10 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
+      tags = Vision.get_image_data(@event.image)
+      tags.each do |tag|
+        @event.tags.create(name: tag)
+        end
       redirect_to root_path
     else
       render :new

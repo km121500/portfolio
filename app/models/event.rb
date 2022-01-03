@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :event
   has_many :notifications, dependent: :destroy
+  has_many :tags, dependent: :destroy
   validates :title, presence: { message: 'は１文字以上入力してください。' }, length: { maximum: 20 }
   validates :image, presence:  { message: 'を選択してください。' }
   validates :date, presence: { message: 'は１文字以上入力してください。' }

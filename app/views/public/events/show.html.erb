@@ -5,6 +5,11 @@
           <div class="bookmark-btn"><%= render 'public/bookmarks/button',event: @event %></div>
             <div>
               <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+              <div class="tag-box">
+                <% @event.tags.each do |tag| %>
+                  <span class="label"><%= tag.name %></span>
+                <% end %>
+              </div>
             </div>
         </div>
         <div class="event-show-right">

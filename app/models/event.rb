@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates :image, presence:  { message: 'を選択してください。' }
   validates :date, presence: { message: 'は１文字以上入力してください。' }
   validates :place, presence: { message: 'は１文字以上入力してください。' }
-  validates :body, presence: { message: 'は１文字以上入力してください。' }, length: { maximum: 200 }
+  validates :body, presence: { message: 'は１文字以上入力してください。' }
 
   attachment :image
 

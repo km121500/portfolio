@@ -16,7 +16,7 @@
   <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3 h1 text-danger" href="/"><strong>SUNRIZE</strong><%= image_tag('') %></a>
+      <a class="navbar-brand p-3 h1 text-danger font-weight-bold" href="/">SUNRIZE<%= image_tag('') %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,19 +24,19 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to '投稿フォーム', new_event_path, class: 'nav-link text-dark' %>
+          <%= link_to '投稿フォーム', new_event_path, class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+          <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
-          <%= link_to "通知", notifications_path, class: 'nav-link text-dark'  %>
+          <%= link_to "通知", notifications_path, class: 'nav-link text-white'  %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
         </li>
         <%= link_to rooms_path, class: 'nav-link text-dark chat-notice' do %>
-        <li class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor" style="font-size: 1.5em;"></li>
+        <li class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor text-white" style="font-size: 1.5em;"></li>
         <% end %>
         
         <% if current_user.unchecked_chats? %>

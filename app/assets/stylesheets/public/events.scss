@@ -3,10 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .event-show{
-  min-width:70vh;
-
+  min-width: 60vh;
     .event-show-main{
-       display:flex;
        margin-top:20px;
        
     .image{
@@ -14,7 +12,9 @@
     }
     
     .event-show-right{
-     width:1200px;
+      width: 80%;
+      overflow-wrap: break-word;
+　　　word-wrap: break-word;
     }
     
     }

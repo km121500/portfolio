@@ -39,7 +39,7 @@ class Public::UsersController < ApplicationController
   end
 
   def bookmark
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(4)
   end
 
   private

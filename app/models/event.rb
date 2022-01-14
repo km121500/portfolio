@@ -18,15 +18,7 @@ class Event < ApplicationRecord
   end
 
   def self.search_for(content, method)
-    if method == 'perfect'
-      Event.where(place: content)
-    elsif method == 'forward'
-      Event.where('place LIKE ?', content + '%')
-    elsif method == 'backward'
-      Event.where('place LIKE ?', '%' + content)
-    else
       Event.where('place LIKE ?', '%' + content + '%')
-    end
   end
 
   # 通知機能

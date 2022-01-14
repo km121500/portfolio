@@ -1,8 +1,5 @@
 <%= render 'layouts/sidemenu'%>
-       <!-----------------------------メイン画面----------------------------->
   <div class="top mt-3">
-     <!-----------------------------サイド画面----------------------------->
-        <!-----------------------------メイン画面----------------------------->
       <div class="top-main">
         
           <div id="slideshow_height">
@@ -14,7 +11,6 @@
               <div class="image5"></div>
             </div>
           </div>
-          
          <div class="introduction">
             <div>
               <h2 class="text-center text-secondary "><strong>introduction</strong></h2>
@@ -23,7 +19,6 @@
               <h2 class="text-center text-info">グループを作成し、練習会の募集も可能です！</h2>
             </div>
          </div>
-  <!-----------------------------せつめい終わり----------------------------->
         <p class="sample_h_4">イベント一覧</p>
         <div class="top-event">
           <% @events.each do |event| %>
@@ -33,7 +28,7 @@
               <%= link_to event_path(event) do %>
               <%= attachment_image_tag event,:image ,:fill, 600, 600,format: 'jpeg',fallback: "no_image.jpeg" %></br>
               </div>
-              <div class="event-down">
+              <div class="event-down ">
                 <h5><strong><%= event.title %></br></strong></h5>
                 <strong>日付：</strong><%= event.date %>
                 <strong>県：</strong><%= event.place %></br>
@@ -53,6 +48,4 @@
         </div>
         <div><%= paginate @events , theme: 'twitter-bootstrap-4'%></div>
       </div>
-      <!-----------------------------メイン画面終わり----------------------------->
-<!-----------------------------メイン画面終わり----------------------------->
   </div>

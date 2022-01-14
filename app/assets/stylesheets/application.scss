@@ -34,17 +34,19 @@ color:black;
 }
 header{
   background-color:#5c5c66;
+  min-width: 100vh;
 }
 main{
-  width: 80%;
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
   min-height: 100vh;
+  min-width: 100vh;
   
   .side-menu{
+   white-space: nowrap;
    margin-right:30px;
    margin-top:20px;
-   width:350/px;
+   width: 300px;
    
    .side-chunk{
     text-align: center;
@@ -59,6 +61,7 @@ main{
       background-image: image-url("large.jpeg");
       background-size: 100% 100%;
     }
+    
     #heading05{
       text-align:center;
       position:relative;
@@ -159,7 +162,13 @@ main{
 footer{
   height:250px;
   background-color:#000033;
+  min-width: 100vh;
 }
 .contact{
-  width:800px;
+  width:500px;
+}
+
+.navbar-light .navbar-toggler-icon{
+  /* 三本線 */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(212, 108, 228, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

@@ -38,25 +38,25 @@
         </li>
 
         <% if current_user.unchecked_chats? %>
-        <ii class="fa fa-circle fa-xs n-circle-chat" style="color: blue;"></i>
+        <ii class="fa fa-circle fa-xs n-circle-chat" style="color: white;"></i>
         <% end %>
 
          <% elsif admin_signed_in? %>
          <li>
-           <%= link_to "ユーザー一覧", admin_root_path, class: "mx-3" %>
+           <%= link_to "ユーザー一覧", admin_root_path, class: "mx-3 text-white" %>
          </li>
           <li>
-            <%= link_to "イベント一覧", admin_events_path, class: "mx-3" %>
+            <%= link_to "イベント一覧", admin_events_path, class: "mx-3 text-white" %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "mx-3" %>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "mx-3 text-white" %>
           </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
         </li>
         <% end %>
         </ul>

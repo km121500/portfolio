@@ -14,13 +14,17 @@
     .event-show-right{
       width: 80%;
       overflow-wrap: break-word;
-　　　word-wrap: break-word;
+      word-wrap: break-word;
     }
     
     }
     
 }
 
+.event-down{
+      margin-bottom:20px;
+    }
+    
 // 画像のポップアップ
 .rows figure {/*表示されている画像。*/
   height: 300px;

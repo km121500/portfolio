@@ -144,7 +144,17 @@ main{
   .event{
      width: 250px;
      background-color:white;
-     margin-bottom:20px;
+     
+    background-color: white;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+    }
+    
+    .event:hover{
+      background-color: #36084d;
+      padding-top: 10px;
     }
   .event-left{
     text-align: center;

@@ -35,7 +35,7 @@ class Public::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to root_path, notice: 'You have updated book successfully.'
+      redirect_to event_path(@event), notice: 'You have updated book successfully.'
     else
       render 'edit'
     end

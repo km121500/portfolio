@@ -93,71 +93,57 @@ describe '投稿のテスト' do
           expect(page).to have_content @event.body
         end
         it 'Editリンクが表示される' do
-          edit_link = find_all('a')[1]
-          expect(edit_link.native.inner_text).to match(/edit/i)
+          edit_link = find_all('a')[10]
+          expect(edit_link.native.inner_text).to match("編集")
         end
       end
       context 'リンクの遷移先の確認' do
         it 'Editの遷移先は編集画面か' do
-          edit_link = find_all('a')[1]
+          edit_link = find_all('a')[10]
           edit_link.click
-          expect(current_path).to eq('/events/' + event.id.to_s + '/edit')
+          expect(current_path).to eq('/events/' + @event.id.to_s + '/edit')
         end
       end
     end
 
-    # describe '編集画面のテスト' do
-    #   before do
-    #     visit edit_event_path(event)
-    #   end
-    #   context '表示の確認' do
-    #   it '編集前のタイトルと感想がフォームに表示(セット)されている' do
-    #     expect(page).to have_field 'event[title]', with: event.title
-    #     expect(page).to have_field 'event[body]', with: event.body
-    #   end
-    #   it 'Update eventボタンが表示される' do
-    #   expect(page).to have_button 'Update Book'
-    #   end
-    #   it 'Showリンクが表示される' do
-    #     show_link = find_all('a')[0]
-    #     expect(show_link.native.inner_text).to match(/show/i)
-    #   end
-    #   # it 'Backリンクが表示される' do
-    #   #   back_link = find_all('a')[1]
-    #   #   expect(back_link.native.inner_text).to match(/back/i)
-    #   # end
-    # end
-    # # context 'リンクの遷移先の確認' do
-    # #   it 'Showの遷移先は詳細画面か' do
-    # #     show_link = find_all('a')[0]
-    # #     show_link.click
-    # #     expect(current_path).to eq('/books/' + book.id.to_s)
-    # #   end
-    # #   it 'Backの遷移先は一覧画面か' do
-    # #     back_link = find_all('a')[1]
-    # #     back_link.click
-    # #     expect(page).to have_current_path books_path
-    # #   end
-    # # end
-    # context '更新処理に関するテスト' do
-    #   it '更新に成功しサクセスメッセージが表示されるか' do
-    #   fill_in 'event[title]', with: Faker::Lorem.characters(number:5)
-    #   fill_in 'event[body]', with: Faker::Lorem.characters(number:20)
-    #   click_button '送信'
-    #   expect(page).to have_content 'successfully'
-    # end
-    #   it '更新に失敗しエラーメッセージが表示されるか' do
-    #   fill_in 'book[title]', with: ""
-    #   fill_in 'book[body]', with: ""
-    #   click_button '送信'
-    #   expect(page).to have_content 'error'
-    # end
-    # it '更新後のリダイレクト先は正しいか' do
-    #   fill_in 'event[title]', with: Faker::Lorem.characters(number:5)
-    #   fill_in 'event[body]', with: Faker::Lorem.characters(number:20)
-    #   click_button '送信'
-    #   expect(page).to have_current_path event_path(event)
-    # end
-    # end
-    # end
+    describe '編集画面のテスト' do
+      before do
+        @user = create(:user,name: 'name',email: 'a@example.com',password: 'test123')
+        @event = create(:event, user_id: @user.id, title: 'hoge',body: 'body',place: 'place', date: '日付',image_id: 'fakdjfkdj')
+        visit new_user_session_path
+        fill_in "user[email]", with: @user.email
+        fill_in "user[password]", with: @user.password
+        click_button "ログイン"
+        visit edit_event_path(@event)
+      end
+      context '表示の確認' do
+        it '編集前のタイトルと感想がフォームに表示(セット)されている' do
+          expect(page).to have_field 'event[title]', with: @event.title
+          expect(page).to have_field 'event[body]', with: @event.body
+        end
+        it '送信ボタンが表示される' do
+          expect(page).to have_button '投稿'
+        end
+      end
+      context '更新処理に関するテスト' do
+        it '更新に成功しサクセスメッセージが表示されるか' do
+        fill_in 'event[title]', with: Faker::Lorem.characters(number:5)
+        fill_in 'event[body]', with: Faker::Lorem.characters(number:20)
+        click_button '投稿'
+        expect(page).to have_content 'You have updated book successfully.'
+      end
+        it '更新に失敗しエラーメッセージが表示されるか' do
+        fill_in 'event[title]', with: ""
+        fill_in 'event[body]', with: ""
+        click_button '投稿'
+        expect(page).to have_content '内容は1文字以上入力してください。'
+      end
+      it '更新後のリダイレクト先は正しいか' do
+        fill_in 'event[title]', with: Faker::Lorem.characters(number:5)
+        fill_in 'event[body]', with: Faker::Lorem.characters(number:20)
+        click_button '投稿'
+        expect(page).to have_current_path event_path(@event)
+      end
+      end
+    end
 end

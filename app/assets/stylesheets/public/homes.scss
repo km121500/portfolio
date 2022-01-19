@@ -35,7 +35,17 @@ border-bottom: 3px solid #409614;/* 下の線 */
 color: #409614;/* フォント色 */
 text-align: center;/* テキストの位置 */
 }
-
+.slede{
+  background-color: white;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+.slide:hover{
+   background-color: #36084d;
+      padding-top: 15px;
+}
 .event-down{
   background-color: #e6e6e6;
 }

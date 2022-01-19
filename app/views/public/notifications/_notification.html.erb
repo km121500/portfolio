@@ -1,7 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-<div>
-  <div class='col-md-6.mx-auto'>
+<div class="container">
+  <div class='col-md-8.mx-auto'>
     <div class='form-inline mt-3'>
       <%= attachment_image_tag visitor, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
         <%= visitor.name %>

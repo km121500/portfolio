@@ -27,8 +27,8 @@
     
 // 画像のポップアップ
 .rows figure {/*表示されている画像。*/
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   margin: 0;
   background-size: cover;
   background-position: 50% 50%;
@@ -42,9 +42,8 @@
 .rows a {/*拡大画像を表示させる為の要素*/
   display: inline-block;
   text-align: center;
-  margin: 40px;
   text-decoration: none;
-  color: white;
+  color: black;
 }
  
 .rows a p {/*テキスト表示。デフォルトでは透過しておく*/
@@ -67,7 +66,7 @@ figure:after {/*オーバーレイ。デフォルトでは透過*/
   display: inline-block;
   height: 100%;
   width: 100%;
-  background-color: blue;
+  background-color: white;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -82,7 +81,9 @@ figure:hover:after {/*マウスホバーでオーバーレイ表示*/
  
 .lightbox-target {/*lightbox*/
   position: fixed;
-  top: -100%;
+  left: 1px;
+  top: 70px;
+  top: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -95,13 +96,13 @@ figure:hover:after {/*マウスホバーでオーバーレイ表示*/
 .lightbox-target .container {
   margin: auto;
   position: absolute;
-  top: 35vh;
-  left: 30vw;
+  top: 45vh;
+  left: 50vw;
   background-color: white;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   transition: 0.5s ease-in-out;
-  text-align: left;
-  transform: translate3d(-50%, -50%, 0);
+  text-align: right;
+  transform: translate3d(-45%, -50%, 0);
 }
  
 a.lightbox-close {/*閉じるボタン*/
@@ -128,18 +129,4 @@ a.lightbox-close {/*閉じるボタン*/
   height: 600px;
   width: 600px;
   vertical-align: top;
-}
-.label {
-  background-color: #337ab7;
-  font-weight: 500;
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
 }

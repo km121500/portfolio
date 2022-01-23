@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>検索結果 "<%= @content %>"</h3>
+  <div class="row">
+    <div class="col-lg-6">
+      <table> 
+        <table class='table'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>名前</th>
+            <th>詳細を見る</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% groups.each do |group| %>
+            <tr>
+              <td><%= attachment_image_tag group, :image, :fill, 50, 50, fallback: "no-image-icon.jpg" %></td>
+              <td><%= group.name %></td>
+              <td><%= link_to '詳細',groups_path(group) ,class: 'btn btn-info text-white' %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div> 
+  </div>  
+</div>

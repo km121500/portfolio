@@ -3,4 +3,6 @@
   <%= render 'public/users/user_all', users: @records %>
 <% elsif @model == 'event' %>
 	<%= render 'public/events/index', events: @records %>
+<% elsif @model == 'group' %>
+  <%= render 'public/groups/search', groups: @records %>
 <% end %>

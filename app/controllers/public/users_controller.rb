@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
   end
 
   def user_all
-    @users = User.alll.order(created_at: :desc)
+    @users = User.all.order(created_at: :desc)
   end
 
   def bookmark

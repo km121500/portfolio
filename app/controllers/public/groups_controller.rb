@@ -58,6 +58,10 @@ class Public::GroupsController < ApplicationController
     @content = params[:content]
     EventMailer.send_mail(group_users, @title, @content).deliver
   end
+  
+  def group_search
+    @groups = Group.all.order(created_at: :desc)
+  end
 
   private
 

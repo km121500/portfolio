@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get 'join' => 'groups#join'
       get 'new/mail' => 'groups#new_mail'
       get 'send/mail' => 'groups#send_mail'
+      get 'groups/search' => 'groups#search', as: 'group_search'
     end
     get 'users/:id/calender' => 'users#calender', as: 'calender_user'
     resources :rooms, only: %i[create index show]

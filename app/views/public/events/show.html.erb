@@ -6,20 +6,20 @@
           <div class="bookmark-btn"><%= render 'public/bookmarks/button',event: @event %></div>
             <div>
               <!--追加ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
-<div class="rows">
-  <a class="lightbox" href="#photo01">
-    <figure class="photo01">
-      <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
-      <p>拡大</p>
-    </figure>
-  </a>
-  <div class="lightbox-target" id="photo01">
-    <div class="container">
-      <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
-      <a class="lightbox-close" href="#">X</a>
-    </div>
-  </div>
-</div>
+              <div class="rows">
+                <a class="lightbox" href="#photo01">
+                  <figure class="photo01">
+                    <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+                    <p>拡大</p>
+                  </figure>
+                </a>
+                <div class="lightbox-target" id="photo01">
+                  <div class="container">
+                    <%= attachment_image_tag @event,:image ,:fill, 300, 300,format: 'jpeg',fallback: "no_image.jpeg" %>
+                    <a class="lightbox-close" href="#">X</a>
+                  </div>
+                </div>
+              </div>
                <!--追加ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
               <div class="tag-box">
                 <% @event.tags.each do |tag| %>

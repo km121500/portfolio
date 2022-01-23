@@ -2,7 +2,7 @@
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.label :search ,class: "mt-3 text"%></br>
     <%= f.text_field :content ,class: "pr-5 mb-3"%></br>
-    <%= f.select :model, options_for_select({ "都道府県" => "event" , "ユーザー" => "user",}) %>
+    <%= f.select :model, options_for_select({ "都道府県" => "event" , "ユーザー" => "user","グループ名" => "group"}) %>
     <%= f.submit '検索' %>
   <% end %>
 </div>

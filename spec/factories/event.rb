@@ -7,4 +7,4 @@ FactoryBot.define do
     date { Faker::Lorem.characters(number:5) }
     image_id { Faker::Lorem.characters(number:20) }
   end
-end 
+end

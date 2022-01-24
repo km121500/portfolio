@@ -16,7 +16,8 @@
             <tr>
               <td><%= attachment_image_tag group, :image, :fill, 50, 50, fallback: "no-image-icon.jpg" %></td>
               <td><%= group.name %></td>
-              <td><%= link_to '詳細',groups_path(group) ,class: 'btn btn-info text-white' %></td>
+              <td><%= link_to '詳細',group_path(group) ,class: 'btn btn-info text-white' %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>

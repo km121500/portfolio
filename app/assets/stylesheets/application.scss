@@ -51,7 +51,7 @@ main{
    .side-chunk{
     text-align: center;
       .search{
-        height: 150px;
+        height: 180px;
         background-color:#D3D3D3;
       }
     }
@@ -172,4 +172,39 @@ footer{
   /* 三本線 */
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(212, 108, 228, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+.n-circle {
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 0rem;
+  color: #efa04c;
+}
 
+.ribbon11-wrapper {  
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 300px;
+  background: #f1f1f1;
+}
+.ribbon11 {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 0 0 -20px;
+  width: calc(100% + 20px);
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  background: #cc3d3d;
+}
+.ribbon11:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px #992e2e;
+}

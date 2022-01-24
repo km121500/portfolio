@@ -83,4 +83,5 @@ gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'enum_help'
+gem 'pry-byebug'
 

@@ -1,11 +1,11 @@
 <%= render 'layouts/sidemenu'%>
-<div class="partner text-center border-bottom border-secondary py-1">
+<div class="partner text-center border-bottom border-secondary py-1 mt-5">
   <%= link_to user_path(@user) do %>
     <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpg', fallback: "no_image.jpeg", size:'40x40', class: "rounded-circle"%>
     <%= @user.name %>
   <% end %>
 </div>
-<div class="messaging">
+<div class="messaging mt-5">
   <div class="inbox_msg">
     <div class="mesgs  scroll">
       <div class="msg_history" id="scroll-inner">
@@ -35,7 +35,7 @@
             <%= f.text_area :message, class: "chat-form mt-3", :size=>"35x3" %>
             <%= f.hidden_field :room_id %>
             <div class="chatt-action">
-              <%= f.submit "送信", class: "btn btn-dark-blues btn-rounded d-block ml-auto" %>
+              <%= f.submit "送信", class: "btn btn-success d-block ml-auto mx-2" %>
             </div>
           <% end %>
       </div>

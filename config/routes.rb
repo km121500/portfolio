@@ -32,13 +32,12 @@ Rails.application.routes.draw do
       resources :event_comments, only: %i[create destroy]
       resource :bookmarks, only: %i[create destroy]
     end
+    get 'groups/search' => 'groups#group_search', as: 'group_search'
     resources :groups do
       get 'join' => 'groups#join'
       get 'new/mail' => 'groups#new_mail'
       get 'send/mail' => 'groups#send_mail'
-      get 'groups/search' => 'groups#search', as: 'group_search'
     end
-    get 'users/:id/calender' => 'users#calender', as: 'calender_user'
     resources :rooms, only: %i[create index show]
     resources :chats, only: [:create]
     get '/search', to: 'searches#search'

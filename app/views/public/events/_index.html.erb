@@ -9,7 +9,7 @@
           <%= attachment_image_tag event,:image ,:fill, 600, 600,format: 'jpeg',fallback: "no_image.jpeg" %></br>
           </div>
           <div class="event-down">
-            <h5><strong><%= event.title %></br></strong></h5>
+            <h5><strong><%= event.title %></strong></h5></br>
             <strong>日付：</strong><%= event.date %>
             <strong>県：</strong><%= event.place %></br>
           <% end %>

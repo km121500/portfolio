@@ -5,7 +5,7 @@ class Public::SearchesController < ApplicationController
     @method = params[:method]
     if @model == 'user'
       @records = User.search_for(@content, @method)
-    elsif @model == ''
+    elsif @model == 'event'
       @records = Event.search_for(@content, @method)
     else
       @records = Group.search_for(@content, @method)

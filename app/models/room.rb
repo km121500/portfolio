@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+   default_scope -> { order(created_at: :desc) }
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :users,  through: :user_rooms

@@ -84,4 +84,4 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'enum_help'
 gem 'pry-byebug'
-
+gem 'hirb'

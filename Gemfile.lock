@@ -128,6 +128,7 @@ GEM
       momentjs-rails (>= 2.9.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hirb (0.7.3)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -374,6 +375,7 @@ DEPENDENCIES
   faker
   font-awesome-sass (~> 5.13)
   fullcalendar-rails
+  hirb
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.3)
   kaminari (~> 1.2.1)

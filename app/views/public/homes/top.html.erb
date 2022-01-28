@@ -1,7 +1,7 @@
 <%= render 'layouts/sidemenu'%>
+<div class="center">
   <div class="top mt-3">
       <div class="top-main">
-        
           <div id="slideshow_height">
             <div id="theTarget">
               <div class="image1"></div>
@@ -33,7 +33,7 @@
                 <strong>日付：</strong><%= event.date %>
                 <strong>県：</strong><%= event.place %></br>
               <% end %>
-                投稿者：<%= link_to users_path(event.user) do %>
+                投稿者：<%= link_to user_path(event.user) do %>
                 <%= event.user.name %></br>
                 <% end %>
                 <%= link_to "詳細を見る",event_path(event) %>
@@ -49,3 +49,4 @@
         <div><%= paginate @events , theme: 'twitter-bootstrap-4'%></div>
       </div>
   </div>
+</div>

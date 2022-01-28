@@ -4,13 +4,13 @@
 
     <p class="text-success"><%= flash[:success]%></p>
         <div>
-        <h3 class="offset-2 col-md-3 text-center d-inline" style="background-color:rgba(107,90,105,0.1);">マイページ</h3>
-        </div>
-        <div class="mt-4 mb-4 btn-group align-items-center">
-        <h4 class="font-weight-bold pt-2 ">登録情報</h4>
-        <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4 text-white"%>
-        <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
-        <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
+            <h3 class="offset-2 col-md-3 text-center d-inline" style="background-color:rgba(107,90,105,0.1);">マイページ</h3>
+          </div>
+          <div class="mt-4 mb-4 btn-group align-items-center">
+          <h4 class="font-weight-bold pt-2 ">登録情報</h4>
+          <%= link_to '編集する',edit_user_path, class: "btn btn-success ml-5 rounded pl-4 pr-4 text-white"%>
+          <td><%= link_to "フォロー一覧",user_followings_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
+          <td><%= link_to "フォロワー一覧",user_followers_path(@user) ,class: 'btn btn-info rounded pl-4 pr-4 ml-2 text-white' %></td>
         </div>
         <%= link_to 'ブックマーク一覧',bookmark_path,class: 'btn btn-primary rounded pl-4 pr-4 ml-2 text-white' %>
         <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -24,7 +24,7 @@
             <td class="col-2 border-dark" style="background-color:rgba(107,90,105,0.1);">メールアドレス</td>
             <td class="col-5 border-dark"><%= @user.email %></td>
           </tr>
-          </table>
+        </table>
            
       </div>
       </div>

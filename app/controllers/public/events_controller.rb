@@ -1,5 +1,7 @@
 class Public::EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,]
+  before_action :authenticate_user!, except: [:index]
+  before_action :erasure_correct_user,only: [:edit,:update,:destroy]
+  
 
   def index
     @events = Event.all
@@ -52,4 +54,12 @@ class Public::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :body, :image, :place, :date)
   end
+  
+  def erasure_correct_user
+    @event = Event.find(params[:id])
+    unless @event.user == current_user
+      redirect_to events_path(@event)
+    end
+  end
+  
 end

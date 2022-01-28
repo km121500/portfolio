@@ -5,7 +5,6 @@
         <div class="image mr-4" id="event_<%= @event.id %>" >
           <div class="bookmark-btn"><%= render 'public/bookmarks/button',event: @event %></div>
             <div>
-              <!--追加ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
               <div class="rows">
                 <a class="lightbox" href="#photo01">
                   <figure class="photo01">
@@ -20,7 +19,6 @@
                   </div>
                 </div>
               </div>
-               <!--追加ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
               <div class="tag-box">
                 <% @event.tags.each do |tag| %>
                   <span class="label"><%= tag.name %></span>

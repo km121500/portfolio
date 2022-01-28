@@ -22,6 +22,8 @@
 
 html, body {
   height: 100%;
+  widght: 100%;
+  min-width: 100vh;
   margin: 0;
   padding: 0;
   font-family: YuGothic,'Yu Gothic';
@@ -34,21 +36,28 @@ color:black;
 }
 header{
   background-color:#5c5c66;
-  min-width: 100vh;
+  margin: 0;
+  min-width: 1150px;
 }
+
 main{
-  display: flex;
-  justify-content: center;
   min-height: 100vh;
   min-width: 100vh;
-  
+  width: 1150px;
+  margin: 0 auto;
+  display: flex;
+
+  .center{
+    flex: 1;
+  }
+
   .side-menu{
    white-space: nowrap;
    margin-right: 20px;
    margin-top: 20px;
    margin-left: 10px;
    width: 270px;
-   
+
    .side-chunk{
     text-align: center;
       .search{
@@ -56,13 +65,16 @@ main{
         background-color:#D3D3D3;
       }
     }
-    
+
     .side-image{
       height: 300px;
       background-image: image-url("large.jpeg");
       background-size: 100% 100%;
     }
-    
+
+
+
+
     #heading05{
       text-align:center;
       position:relative;
@@ -143,7 +155,7 @@ main{
     }
 
   .event{
-     width: 250px;
+     width: 230px;
      background-color:white;
 
     }
@@ -163,7 +175,7 @@ main{
 footer{
   height:250px;
   background-color:#000033;
-  min-width: 100vh;
+  min-width: 1150px;
 }
 .contact{
   width:500px;
@@ -180,7 +192,7 @@ footer{
   color: #efa04c;
 }
 
-.ribbon11-wrapper {  
+.ribbon11-wrapper {
   display: block;
   position: relative;
   margin: 0 auto;

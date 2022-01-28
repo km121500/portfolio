@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show,:user_all]
+  before_action :ensure_correct_user, only: %i[edit update show]
   
   def index
     @user = User.find(params[:id])
@@ -47,4 +48,10 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :image)
   end
+  
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    redirect_to(user_url(current_user)) unless @user == current_user
+  end
+  
 end

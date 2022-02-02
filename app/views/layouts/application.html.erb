@@ -33,11 +33,11 @@
         <%= link_to rooms_path, class: 'nav-link text-dark chat-notice' do %>
         <li class="far fa-envelope fa-lg.fa-stack-2x fa-backcolor text-white" style="font-size: 1.5em;"></li>
         <% end %>
-        
+
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
         </li>
-        
+
          <% elsif admin_signed_in? %>
          <li>
            <%= link_to "ユーザー一覧", admin_root_path, class: "mx-3 text-white" %>

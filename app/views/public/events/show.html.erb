@@ -32,7 +32,9 @@
               <h4 class="d-inline"><%= @event.user.name  %></h4>
               <% end %>
               <%= render 'public/relationships/button', event: @event %>
+              <% if @event.user == current_user %>
               <%= link_to "編集", edit_event_path(@event) ,class: "d-inline-block text-success ml-3" %>
+              <% end %>
           <h1><strong>イベント名：<%= @event.title %></strong></h1></br>
           <h4>日付：<%= @event.date %></h4></br>
           <h4>都道府県：<%= @event.place %></h4></br>
@@ -42,7 +44,6 @@
         <div class='comment' id="event_<%= @event.id %>">
           <div class="eventcomment"><%= render 'public/event_comments/comment',event: @event %></div>
         </div>
-
           <div>
           <%= form_with(model:[@event,@event_comment], remote: true) do |f| %>
           <%= f.text_area :comment, rows: '5',placeholder: "コメントをここに",class: "col-md-8 "%></br>

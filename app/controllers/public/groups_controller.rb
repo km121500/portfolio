@@ -41,6 +41,12 @@ class Public::GroupsController < ApplicationController
     end
   end
 
+  def destroy_group
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
+  end
+
   def destroy
     @group = Group.find(params[:id])
     @group.users.delete(current_user)

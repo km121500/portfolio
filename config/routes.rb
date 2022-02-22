@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resource :bookmarks, only: %i[create destroy]
     end
     get 'groups/search' => 'groups#group_search', as: 'group_search'
+    delete 'groups/show' => 'groups#destroy_group', as: 'destroy_group'
     resources :groups do
       get 'join' => 'groups#join'
       get 'new/mail' => 'groups#new_mail'

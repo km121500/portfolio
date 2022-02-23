@@ -15,7 +15,7 @@
           </td>
           <td>
             <% if @group.owner_id == current_user.id %>
-              <%= link_to "削除",destroy_group_path ,method: :delete , class: 'text-danger pl-5' %>
+              <%= link_to "削除",destroy_group_path(@group) ,method: :delete , class: 'btn btn-sm btn-danger text-white' %>
               <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success text-white" %>
               <%= link_to 'メンバーにメール',group_new_mail_path(@group), class: "fas fa-paper-plane btn btn-info text-white ml-4" %>
             <% elsif @group.users.include?(current_user) %>

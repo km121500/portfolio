@@ -8,16 +8,16 @@
      <div class="field-group ml-5 mt-5">
       <div class="field">
         <%= f.label :メールアドレス,class: "col-md-2" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "col-md-4" ,placeholder: "sample@sample.com" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "" ,placeholder: "sample@sample.com" %>
       </div>
     
       <div class="field mt-2">
         <%= f.label :パスワード,class: "col-md-2" %>
-        <%= f.password_field :password, autocomplete: "current-password" ,class: "col-md-4" %>
+        <%= f.password_field :password, autocomplete: "current-password" ,class: "" %>
       </div>
       
       <div class="actions">
-        <%= f.submit "ログイン",class: "btn btn-primary col-md-2 mt-5 offset-2" %>
+        <%= f.submit "ログイン",class: "btn btn-primary  mt-5 " %>
       </div>
     <% end %>
     </div>

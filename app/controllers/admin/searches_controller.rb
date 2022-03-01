@@ -1,5 +1,4 @@
 class Admin::SearchesController < ApplicationController
-  before_action :authenticate_ad!
   
   def search
     @model = params[:model]
